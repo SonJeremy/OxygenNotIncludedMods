@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <UsePLib>false</UsePLib>
+        <SModUtil>true</SModUtil>
+        <useSModUtil>false</useSModUtil>
+        <FileVersion>1.0.0.0</FileVersion>
+        <DistributeMod>false</DistributeMod>
+        <Platforms>Vanilla;Mergedown</Platforms>
+        <TargetFramework>net48</TargetFramework>
+        <AssemblyTitle>SMod Util</AssemblyTitle>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <RootNamespace>SonJeremy.SModUtil</RootNamespace>
+        <Description>Some utility features shared accross mod.</Description>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Remove="ILRepack.Lib.MSBuild.Task" />
+    </ItemGroup>
+</Project>

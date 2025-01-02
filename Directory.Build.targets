@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <Target Name="SetPlatform" BeforeTargets="CoreCompile">
+        <PropertyGroup>
+            <PlatformTarget>AnyCPU</PlatformTarget>
+        </PropertyGroup>
+    </Target>
+
+    <Target Name="Publicize" AfterTargets="Clean" Condition=" '$(UsePublicized)' == 'true' ">
+        <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="../ModResource/PublicizeLib/"/>
+    </Target>
+
+    <Target Name="GenerateRefAssemblies" AfterTargets="Clean" Condition=" '$(MSBuildProjectName)' == 'SModUtil' And '$(GameFolderActive)' != '../ModResource/GameLib' ">
+        <Exec Command="Refasmer -v -O ../ModResource/GameLib --all -c ../ModResource/PublicizeLib/Assembly-CSharp_public.dll ../ModResource/PublicizeLib/Assembly-CSharp-firstpass_public.dll ^
+        $(GameFolderActive)/Assembly-CSharp.dll $(GameFolderActive)/Assembly-CSharp-firstpass.dll $(GameFolderActive)/0Harmony.dll ^
+        $(GameFolderActive)/FMODUnity.dll $(GameFolderActive)/Newtonsoft.Json.dll $(GameFolderActive)/UnityEngine.dll ^
+        $(GameFolderActive)/UnityEngine.CoreModule.dll $(GameFolderActive)/UnityEngine.ImageConversionModule.dll ^
+        $(GameFolderActive)/UnityEngine.UIModule.dll $(GameFolderActive)/UnityEngine.UnityWebRequestModule.dll ^
+        $(GameFolderActive)/UnityEngine.InputLegacyModule.dll $(GameFolderActive)/Unity.TextMeshPro.dll ^
+        $(GameFolderActive)/UnityEngine.TextRenderingModule.dll $(GameFolderActive)/UnityEngine.UI.dll ^
+        $(GameFolderActive)/Ionic.Zip.dll $(GameFolderActive)/Newtonsoft.Json.dll ^
+        $(GameFolderActive)/com.rlabrecque.steamworks.net.dll" IgnoreExitCode="true" />
+    </Target>
+
+    <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Remove="$(GameFolderActive)\*"/>
+        </ItemGroup>
+    </Target>
+
+    <Target Name="WriteModInfoFile" BeforeTargets="PreBuildEvent" Condition=" '$(DistributeMod)' == 'true' ">
+        <PropertyGroup>
+            <ModInfoFile>$(IntermediateOutputPath)\mod_info.yaml</ModInfoFile>
+            <ModInfoFileContent>
+version: $(FileVersion)
+APIVersion: $(APIVersion)
+supportedContent: $(SupportedContent)
+minimumSupportedBuild: $(LastWorkingBuild)
+            </ModInfoFileContent>
+        </PropertyGroup>
+        <WriteLinesToFile File="$(ModInfoFile)" Overwrite="true" Lines="$(ModInfoFileContent)"/>
+    </Target>
+
+    <Target Name="WriteModDescriptionFile" BeforeTargets="PreBuildEvent" Condition=" '$(DistributeMod)' == 'true' ">
+        <PropertyGroup>
+            <ModDescriptionFile>$(IntermediateOutputPath)\mod.yaml</ModDescriptionFile>
+            <ModDescriptionFileContent>
+title: "$(AssemblyTitle)"
+staticID: SonJeremy.$(AssemblyName)
+description: "$(Description)"
+            </ModDescriptionFileContent>
+        </PropertyGroup>
+        <WriteLinesToFile File="$(ModDescriptionFile)" Overwrite="true" Lines="$(ModDescriptionFileContent)"/>
+    </Target>
+
+    <Target Name="ILRepack" AfterTargets="Build" Condition=" '$(SModUtil)' != 'true' ">
+        <PropertyGroup Condition=" '$(AssemblyName)' == 'PLib' ">
+            <Internalize>false</Internalize>
+        </PropertyGroup>
+        
+        <PropertyGroup Condition=" '$(AssemblyName)' != 'PLib' ">
+            <Internalize>true</Internalize>
+        </PropertyGroup>
+        
+        <ItemGroup Condition=" '$(UsePLib)' != 'false' ">
+            <InputAssemblies Include="$(TargetPath)"/>
+            <InputAssemblies Include="../ModResource/PLib/Latest/PLib.dll"/>
+            <InputAssemblies Condition=" '$(UseSModUtil)' != 'fasle' "  Include="$(TargetDir)SModUtil.dll"/>
+        </ItemGroup>
+        
+        <ItemGroup Condition=" '$(UsePLib)' == 'false' ">
+            <InputAssemblies Include="$(TargetPath)"/>
+            <InputAssemblies Condition=" '$(UseSModUtil)' != 'fasle' "  Include="$(TargetDir)SModUtil.dll"/>
+        </ItemGroup>
+        
+        <ILRepack
+                TargetPlatformVersion="v4" TargetKind="SameAsPrimaryAssembly" OutputFile="$(TargetPath)" 
+                InputAssemblies="@(InputAssemblies)" XmlDocumentation="true" Internalize="$(Internalize)" 
+                Wildcards="true" LibraryPath="$(GameFolderActive)"
+        />
+    </Target>
+
+    <Target Name="CopyArtifactsToInstallFolder" AfterTargets="ILRepack" Condition=" '$(DistributeMod)' == 'true' ">
+        <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+            <RootInstallFolder>..\Release\$(ProjectName)</RootInstallFolder>
+        </PropertyGroup>
+        
+        <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+            <RootInstallFolder>$(ModFolder)\$(ProjectName)</RootInstallFolder>
+        </PropertyGroup>
+        
+        <PropertyGroup>
+            <InstallFolder>$(RootInstallFolder)$(ArchivedVersionPath)</InstallFolder>
+        </PropertyGroup>
+
+        <ItemGroup>
+            <AnimFiles Include="$(ProjectDir)\anim\**\*.*"/>
+            <TranslationFiles Include="$(ProjectDir)\translations\*.po"/>
+            <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*"/>
+            <WorldGenTemplates Include="$(ProjectDir)\templates\**\*.*"/>
+            <YamlFiles Include="$(ProjectDir)\*.yaml"/>
+        </ItemGroup>
+
+        <Copy Condition="Exists('$(ProjectDir)\translations')" SourceFiles="@(TranslationFiles)" DestinationFolder="$(InstallFolder)\translations"/>
+        <Copy Condition="Exists('$(ProjectDir)\anim')" SourceFiles="@(AnimFiles)" DestinationFiles="@(AnimFiles->'$(InstallFolder)\anim\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy Condition="Exists('$(ProjectDir)\worldgen')" SourceFiles="@(WorldGenFiles)" DestinationFiles="@(WorldGenFiles->'$(InstallFolder)\worldgen\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy Condition="Exists('$(ProjectDir)\templates')" SourceFiles="@(WorldGenTemplates)" DestinationFiles="@(WorldGenTemplates->'$(InstallFolder)\templates\%(RecursiveDir)%(Filename)%(Extension)')"/>
+
+        <Copy SourceFiles="@(YamlFiles)" DestinationFolder="$(InstallFolder)"/>
+        <Copy SourceFiles="$(ModInfoFile)" DestinationFolder="$(InstallFolder)"/>
+        <Copy SourceFiles="$(ModDescriptionFile)" DestinationFolder="$(RootInstallFolder)"/>
+        <Copy SourceFiles="$(ProjectDir)\ModInfo\Preview.png" DestinationFiles="$(InstallFolder)\preview.png" Condition=" $(CopyPreview) == true "/>
+        
+        <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
+    </Target>
+</Project>

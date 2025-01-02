@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{7162EFA4-3B0A-4452-B4EC-769B492443D6}"
+	ProjectSection(SolutionItems) = preProject
+					README.md = README.md
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Build.props.default = Directory.Build.props.default
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrashCans", "TrashCans\TrashCans.csproj", "{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SModUtil", "SModUtil\SModUtil.csproj", "{19751E58-042B-42D2-A889-7B7DABA84C4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mergedown = Debug|Mergedown
+		Debug|Vanilla = Debug|Vanilla
+		Release|Mergedown = Release|Mergedown
+		Release|Vanilla = Release|Vanilla
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Debug|Mergedown.ActiveCfg = Debug|Mergedown
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Debug|Mergedown.Build.0 = Debug|Mergedown
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Debug|Vanilla.ActiveCfg = Debug|Vanilla
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Debug|Vanilla.Build.0 = Debug|Vanilla
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Release|Mergedown.ActiveCfg = Release|Mergedown
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Release|Mergedown.Build.0 = Release|Mergedown
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Release|Vanilla.ActiveCfg = Release|Vanilla
+		{19751E58-042B-42D2-A889-7B7DABA84C4A}.Release|Vanilla.Build.0 = Release|Vanilla
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Debug|Mergedown.ActiveCfg = Debug|Mergedown
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Debug|Mergedown.Build.0 = Debug|Mergedown
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Debug|Vanilla.ActiveCfg = Debug|Vanilla
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Debug|Vanilla.Build.0 = Debug|Vanilla
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Mergedown.ActiveCfg = Release|Mergedown
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Mergedown.Build.0 = Release|Mergedown
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Vanilla.ActiveCfg = Release|Vanilla
+		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Vanilla.Build.0 = Release|Vanilla
+	EndGlobalSection
+EndGlobal

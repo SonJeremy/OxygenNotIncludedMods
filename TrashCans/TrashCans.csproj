@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <CopyPreview>true</CopyPreview>
+    <AssemblyTitle>Trash Cans (Trashcans Fixed)</AssemblyTitle>
+    <FileVersion>1.0.3.0</FileVersion>
+    <RootNamespace>SonJeremy.TrashCans</RootNamespace>
+    <Description>Keep your colony tidy! Trash Cans help dispose of unused elements, from gases to artifacts. A Re-work of original mod.</Description>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <LastWorkingBuild>647408</LastWorkingBuild>
+    <Platforms>Vanilla;Mergedown</Platforms>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+</Project>
