@@ -2,8 +2,8 @@
 name: Mod Translations
 about: For Contributing Mod Translations
 title: "[TRANSLATION] {ModName} - {Language}"
-labels: ''
-assignees: ''
+labels: translation
+assignees: SonJeremy
 
 ---
 
