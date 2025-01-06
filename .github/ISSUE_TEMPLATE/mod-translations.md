@@ -8,4 +8,6 @@ assignees: SonJeremy
 ---
 
 ## Mod Translation Files
-<!--- Attach the *.po / *.zip files of your translation. -->
+<!-- The translation template is located in the ModInfo\Translations folder within the source folder of each mod. You can find the template file with the .pot extension.-->
+<!-- More information & guide located at ModResource\Guides. -->
+<!-- Attach the *.po and/or *.zip files of your translation here. -->
