@@ -94,22 +94,22 @@ description: "$(Description)"
         </PropertyGroup>
 
         <ItemGroup>
-            <AnimFiles Include="$(ProjectDir)\anim\**\*.*"/>
-            <TranslationFiles Include="$(ProjectDir)\translations\*.po"/>
-            <WorldGenFiles Include="$(ProjectDir)\worldgen\**\*.*"/>
-            <WorldGenTemplates Include="$(ProjectDir)\templates\**\*.*"/>
-            <YamlFiles Include="$(ProjectDir)\*.yaml"/>
+            <YamlFiles Include="$(ProjectDir)\ModInfo\YAML\*.yaml"/>
+            <AnimFiles Include="$(ProjectDir)\ModInfo\Animations\**\*.*"/>
+            <WorldGenFiles Include="$(ProjectDir)\ModInfo\WorldGen\**\*.*"/>
+            <WorldGenTemplates Include="$(ProjectDir)\ModInfo\Templates\**\*.*"/>
+            <TranslationFiles Include="$(ProjectDir)\ModInfo\Translations\*.po"/>
         </ItemGroup>
 
-        <Copy Condition="Exists('$(ProjectDir)\translations')" SourceFiles="@(TranslationFiles)" DestinationFolder="$(InstallFolder)\translations"/>
-        <Copy Condition="Exists('$(ProjectDir)\anim')" SourceFiles="@(AnimFiles)" DestinationFiles="@(AnimFiles->'$(InstallFolder)\anim\%(RecursiveDir)%(Filename)%(Extension)')"/>
-        <Copy Condition="Exists('$(ProjectDir)\worldgen')" SourceFiles="@(WorldGenFiles)" DestinationFiles="@(WorldGenFiles->'$(InstallFolder)\worldgen\%(RecursiveDir)%(Filename)%(Extension)')"/>
-        <Copy Condition="Exists('$(ProjectDir)\templates')" SourceFiles="@(WorldGenTemplates)" DestinationFiles="@(WorldGenTemplates->'$(InstallFolder)\templates\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy Condition="Exists('$(ProjectDir)\ModInfo\Translations')" SourceFiles="@(TranslationFiles)" DestinationFolder="$(InstallFolder)\translations"/>
+        <Copy Condition="Exists('$(ProjectDir)\ModInfo\Animations')" SourceFiles="@(AnimFiles)" DestinationFiles="@(AnimFiles->'$(InstallFolder)\anim\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy Condition="Exists('$(ProjectDir)\ModInfo\WorldGen')" SourceFiles="@(WorldGenFiles)" DestinationFiles="@(WorldGenFiles->'$(InstallFolder)\worldgen\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        <Copy Condition="Exists('$(ProjectDir)\ModInfo\Templates')" SourceFiles="@(WorldGenTemplates)" DestinationFiles="@(WorldGenTemplates->'$(InstallFolder)\templates\%(RecursiveDir)%(Filename)%(Extension)')"/>
 
         <Copy SourceFiles="@(YamlFiles)" DestinationFolder="$(InstallFolder)"/>
         <Copy SourceFiles="$(ModInfoFile)" DestinationFolder="$(InstallFolder)"/>
         <Copy SourceFiles="$(ModDescriptionFile)" DestinationFolder="$(RootInstallFolder)"/>
-        <Copy SourceFiles="$(ProjectDir)\ModInfo\Preview.png" DestinationFiles="$(InstallFolder)\preview.png" Condition=" $(CopyPreview) == true "/>
+        <Copy SourceFiles="$(ProjectDir)\ModInfo\ArtWork\Preview.png" DestinationFiles="$(InstallFolder)\preview.png" Condition=" $(CopyPreview) == true "/>
         
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
     </Target>
