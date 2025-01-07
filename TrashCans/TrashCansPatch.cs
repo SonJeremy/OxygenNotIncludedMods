@@ -74,10 +74,12 @@ namespace SonJeremy.TrashCans
             {
                 if (__instance == null) return true;
                 
-                object HasFluidTrashCans = __instance.FindComponent<TrashCans>();
-                var IsArtifactArtifactTrashCans = __instance.FindComponent<Building>().Def.PrefabID.ToUpper();
-
-                if (HasFluidTrashCans == null || IsArtifactArtifactTrashCans == "ARTIFACTTRASHCANS") return true;
+                
+                object HasTrashCans = __instance.FindComponent<TrashCans>();
+                var TrashCansBuildingID = __instance.FindComponent<Building>().Def.PrefabID.ToUpper();
+                
+                if (HasTrashCans == null || TrashCansBuildingID == "ARTIFACTTRASHCANS") return true;
+                if (TrashCansBuildingID == "SOLIDTRASHCANS" && ModOptions.Instance.SolidTrashCansEnableAutoDelivery == false) return true;
                 
                 __instance.GetComponent<KSelectable>().ToggleStatusItem(Db.Get().BuildingStatusItems.NoStorageFilterSet, false, __instance.gameObject);
 
