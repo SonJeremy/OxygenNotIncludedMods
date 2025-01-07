@@ -7,6 +7,8 @@ assignees: SonJeremy
 
 ---
 
+<!-- Note: Please, remember to remove the curly brackets in the Title -->
+
 ## Basic Information
 <!-- Tell me what happen and provide a general summary of the issue in the title above. -->
 <!-- If you have the any DLC installed, and if you are using any of the public preview branches. -->

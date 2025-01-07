@@ -7,6 +7,8 @@ assignees: SonJeremy
 
 ---
 
+<!-- Note: Please, remember to remove the curly brackets in the Title -->
+
 **Mod Name:** <!-- Provide name of the mod you're requesting a fix for. -->
 **Last Working Game Build:** <!-- Provide last working Game Build you know or None for unknown. -->
 **Steam Store Link to the Mod:** <!-- Provide the link to the mod on the Steam Workshop or Github Repo. -->
