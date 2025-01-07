@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using KSerialization;
 
-using static SonJeremy.TrashCans.Mods.ModStrings.UI.TRASH_CANS_SIDE_SCREEN;
+using static SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN;
 
 namespace SonJeremy.TrashCans.SideScreenUI
 {
@@ -64,7 +64,7 @@ namespace SonJeremy.TrashCans.SideScreenUI
 
         private LocString GetCheckboxTitleKey()
         {
-            return (LocString) nameof(AUTO_TRASH_CHECKBOX);
+            return nameof(AUTO_TRASH_CHECKBOX);
         }
 
         private string GetSliderTitleKey()

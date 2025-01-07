@@ -12,7 +12,6 @@ using KMod;
 using TUNING;
 using HarmonyLib;
 
-using SonJeremy.TrashCans.Mods;
 using SonJeremy.TrashCans.BuildingConfig;
 
 using PeterHan.PLib.AVC;
@@ -46,7 +45,7 @@ namespace SonJeremy.TrashCans
             BuildingManager.Register(SolidTrashCanConfig.CreateBuilding());
             BuildingManager.Register(LiquidTrashCanConfig.CreateBuilding());
             BuildingManager.Register(ArtifactTrashCanConfig.CreateBuilding());
-
+            
             new PVersionCheck().Register(this, new SteamVersionChecker());
             new PPatchManager(HarmoryInstance).RegisterPatchClass(typeof(TrashCansPatch));
         }

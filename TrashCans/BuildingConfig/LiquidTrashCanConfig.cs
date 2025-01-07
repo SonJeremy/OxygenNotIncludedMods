@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Buildings;
 
-using SonJeremy.TrashCans.Mods;
 using SonJeremy.TrashCans.MachineState;
 using SonJeremy.TrashCans.AutoConsumption;
 
