@@ -1,0 +1,355 @@
+msgid ""
+msgstr ""
+"Application: Oxygen Not Included"
+"POT Version: 2.0"
+
+#. SonJeremy.TrashCans.ModStrings.ArtifactTrashCansDescription
+msgctxt "SonJeremy.TrashCans.ModStrings.ArtifactTrashCansDescription"
+msgid "We know, artifacts can be valuable... but sometimes they just take up too much room. Say goodbye to relics gathering dust!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.ArtifactTrashCansEffect
+msgctxt "SonJeremy.TrashCans.ModStrings.ArtifactTrashCansEffect"
+msgid "Store Artifact items in Special Storage for auto or manual empty trash."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.ArtifactTrashCansName
+msgctxt "SonJeremy.TrashCans.ModStrings.ArtifactTrashCansName"
+msgid "Artifact Trash Cans"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.AUTO_TRASH.NAME
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.AUTO_TRASH.NAME"
+msgid "Auto Trash: <b>{TRASHCANS_AUTO_TRASH_STATUS}</b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.AUTO_TRASH.TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.AUTO_TRASH.TOOLTIP"
+msgid "Trash Cans will {TRASHCANS_STATUS_TOOLTIP}"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.FILTER_STATE.NAME
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.FILTER_STATE.NAME"
+msgid "Filter State: <b>{TRASHCANS_FILTER_STATE_STATUS}</b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.FILTER_STATE.TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDING.STATUSITEMS.ALLTRASHCANS.FILTER_STATE.TOOLTIP"
+msgid "{TRASHCANS_FILTER_STATE_TOOLTIP}"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.ARTIFACTTRASHCANS.DESC
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.ARTIFACTTRASHCANS.DESC"
+msgid "We know, artifacts can be valuable... but sometimes they just take up too much room. Say goodbye to relics gathering dust!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.ARTIFACTTRASHCANS.EFFECT
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.ARTIFACTTRASHCANS.EFFECT"
+msgid "Store Artifact items in Special Storage for auto or manual empty trash."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.ARTIFACTTRASHCANS.NAME
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.ARTIFACTTRASHCANS.NAME"
+msgid "<link=\"ARTIFACTTRASHCANS\">Artifact Trash Cans</link>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.GASTRASHCANS.DESC
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.GASTRASHCANS.DESC"
+msgid "When the air's full of unwanted gases, your colony could be suffocating from the excess. Expel useless gases that don't belong in your atmosphere. Breathe easy!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.GASTRASHCANS.EFFECT
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.GASTRASHCANS.EFFECT"
+msgid "Store <link=\"ELEMENTSGAS\">Gas</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a cans."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.GASTRASHCANS.NAME
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.GASTRASHCANS.NAME"
+msgid "<link=\"GASTRASHCANS\">Gas Trash Cans</link>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.LIQUIDTRASHCANS.DESC
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.LIQUIDTRASHCANS.DESC"
+msgid "Out with the old, in with the new. Liquids that no longer serve a purpose have a place to go! Send excess liquids to oblivion! No more unwanted puddles cluttering your base.!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.LIQUIDTRASHCANS.EFFECT
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.LIQUIDTRASHCANS.EFFECT"
+msgid "Store <link=\"ELEMENTSLIQUID\">Liquid</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a cans."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.LIQUIDTRASHCANS.NAME
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.LIQUIDTRASHCANS.NAME"
+msgid "<link=\"LIQUIDTRASHCANS\">Liquid Trash Cans</link>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.SOLIDTRASHCANS.DESC
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.SOLIDTRASHCANS.DESC"
+msgid "Rocks, dirt, and debris can accumulate fast.  Don't let a pile of junk weigh you down—store it away, and focus on building your colony's future!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.SOLIDTRASHCANS.EFFECT
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.SOLIDTRASHCANS.EFFECT"
+msgid "Store <link=\"ELEMENTSSOLID\">Solid</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a unpacked solid."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.SOLIDTRASHCANS.NAME
+msgctxt "SonJeremy.TrashCans.ModStrings.BUILDINGS.PREFABS.SOLIDTRASHCANS.NAME"
+msgid "<link=\"SOLIDTRASHCANS\">Solid Trash Cans</link>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.GasTrashCansDescription
+msgctxt "SonJeremy.TrashCans.ModStrings.GasTrashCansDescription"
+msgid "When the air's full of unwanted gases, your colony could be suffocating from the excess. Expel useless gases that don't belong in your atmosphere. Breathe easy!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.GasTrashCansEffect
+msgctxt "SonJeremy.TrashCans.ModStrings.GasTrashCansEffect"
+msgid "Store <link=\"ELEMENTSGAS\">Gas</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a cans."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.GasTrashCansName
+msgctxt "SonJeremy.TrashCans.ModStrings.GasTrashCansName"
+msgid "Gas Trash Cans"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.LiquidTrashCansDescription
+msgctxt "SonJeremy.TrashCans.ModStrings.LiquidTrashCansDescription"
+msgid "Out with the old, in with the new. Liquids that no longer serve a purpose have a place to go! Send excess liquids to oblivion! No more unwanted puddles cluttering your base.!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.LiquidTrashCansEffect
+msgctxt "SonJeremy.TrashCans.ModStrings.LiquidTrashCansEffect"
+msgid "Store <link=\"ELEMENTSLIQUID\">Liquid</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a cans."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.LiquidTrashCansName
+msgctxt "SonJeremy.TrashCans.ModStrings.LiquidTrashCansName"
+msgid "Liquid Trash Cans"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.MISC.TAGS.MISCPICKUPABLE
+msgctxt "SonJeremy.TrashCans.ModStrings.MISC.TAGS.MISCPICKUPABLE"
+msgid "Pickupable"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.SolidTrashCansDescription
+msgctxt "SonJeremy.TrashCans.ModStrings.SolidTrashCansDescription"
+msgid "Rocks, dirt, and debris can accumulate fast.  Don't let a pile of junk weigh you down—store it away, and focus on building your colony's future!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.SolidTrashCansEffect
+msgctxt "SonJeremy.TrashCans.ModStrings.SolidTrashCansEffect"
+msgid "Store <link=\"ELEMENTSSOLID\">Solid</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a unpacked solid."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.SolidTrashCansName
+msgctxt "SonJeremy.TrashCans.ModStrings.SolidTrashCansName"
+msgid "Solid Trash Cans"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.GAS_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.GAS_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED"
+msgid "Filter is not set. Trash Cans will <b>Store All Type Of <link=\"ELEMENTSGAS\">Gases</link></b>."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.GAS_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.GAS_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED"
+msgid "Matching element are stored, while others are dropped as a can."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED"
+msgid "Filter is not set. Trash Cans will <b>Store All Type Of <link=\"ELEMENTSLIQUID\">Liquids</link></b>."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED"
+msgid "Matching element are stored, while others are dropped as a can."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.SOLID_STORAGE_UNIT
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.SOLID_STORAGE_UNIT"
+msgid "Kg"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED"
+msgid "Filter is not set. Trash Cans will <b>Store All Type Of <link=\"ELEMENTSSOLID\">Solid Materials</link></b>."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED"
+msgid "Matching element are stored, while others are dropped as unloaded."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_CONNECTED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_CONNECTED"
+msgid "<b>Connected<b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_NOT_CONNECTED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_NOT_CONNECTED"
+msgid "<b>Enabled - NOT Connected<b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_TOOLTIP_ENABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_TOOLTIP_ENABLED"
+msgid "When auto delivery enabled. This Trash Cans will accept all materials send by Conveyor Rail."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_TOOLTIP_NOT_CONNECTED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_DELIVERY_TOOLTIP_NOT_CONNECTED"
+msgid "Not connected with any Conveyor Rail or Loader."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_TRASH_STATUS_DISABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_TRASH_STATUS_DISABLED"
+msgid "<b>Disabled</b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_TRASH_STATUS_ENABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_AUTO_TRASH_STATUS_ENABLED"
+msgid "<b>Enabled ~ {NEXT_AUTO_TRASH_SECOND}s</b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_NOT_SET
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_NOT_SET"
+msgid "<b>Not Set</b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_SET
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_SET"
+msgid "<b>Set</b>"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_STATUS_TOOLTIP_DISABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_STATUS_TOOLTIP_DISABLED"
+msgid "<b>NOT</b> auto empty trash.!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_STATUS_TOOLTIP_ENABLED
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.TRASHCANS_STATUS_TOOLTIP_ENABLED"
+msgid "auto empty in <b>{NEXT_AUTO_TRASH_SECOND}s</b> from an total of <b>{TOTAL_WAIT_TIME}s</b>."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.UNKNOWN_TYPE
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS.UNKNOWN_TYPE"
+msgid "Not Type Of Trash Cans"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ARTIFACT_CATEGORY
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ARTIFACT_CATEGORY"
+msgid "Artifact Trash Cans Options"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.CAN_FLOOD
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.CAN_FLOOD"
+msgid "Can Flood"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.CAN_OVER_HEAT
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.CAN_OVER_HEAT"
+msgid "Can Over Heat"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.CAPACITY_KG
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.CAPACITY_KG"
+msgid "Capacity KG"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_DELIVERY
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_DELIVERY"
+msgid "Enable Auto Delivery With Conveyor Rail"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_DELIVERY_TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_DELIVERY_TOOLTIP"
+msgid "Using Conveyor Rail for delivery. Duplicants work will not be affected."
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_TRASH
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_TRASH"
+msgid "Enable Auto Trash"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENERGY_CONSUMPTION_WHEN_ACTIVE
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.ENERGY_CONSUMPTION_WHEN_ACTIVE"
+msgid "Energy Consumption When Active"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.GAS_CATEGORY
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.GAS_CATEGORY"
+msgid "Gas Trash Cans Options"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.LIQUID_CATEGORY
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.LIQUID_CATEGORY"
+msgid "Liquid Trash Cans Options"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.MAX_AUTO_TRASH_INTERVAL
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.MAX_AUTO_TRASH_INTERVAL"
+msgid "Max Auto Trash Interval"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.REQUIRE_POWER
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.REQUIRE_POWER"
+msgid "Require Power To Operate"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.SOLID_CATEGORY
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_OPTIONS.SOLID_CATEGORY"
+msgid "Solid Trash Cans Options"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_CHECKBOX.LABEL
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_CHECKBOX.LABEL"
+msgid "Enable Auto Trash"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_CHECKBOX.TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_CHECKBOX.TOOLTIP"
+msgid "Will automatically empty after a given period of time.!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.TITLE
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.TITLE"
+msgid ""
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.TOOLTIP"
+msgid "Make your Decision how each auto trash period.!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.TOOLTIPKEY
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.TOOLTIPKEY"
+msgid ""
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.UNIT
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.AUTO_TRASH_SLIDER.UNIT"
+msgid " s"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.DROP_ITEMS_BUTTON.TITLE
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.DROP_ITEMS_BUTTON.TITLE"
+msgid "Drop Contents"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.DROP_ITEMS_BUTTON.TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.DROP_ITEMS_BUTTON.TOOLTIP"
+msgid "Drop All its contents when touch.!"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.EMPTY_TRASH_BUTTON.TEXT
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.EMPTY_TRASH_BUTTON.TEXT"
+msgid "Empty Trash"
+msgstr ""
+
+#. SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.EMPTY_TRASH_BUTTON.TOOLTIP
+msgctxt "SonJeremy.TrashCans.ModStrings.UI.TRASH_CANS_SIDE_SCREEN.EMPTY_TRASH_BUTTON.TOOLTIP"
+msgid "Empty your trash, tidy your colony.!"
+msgstr ""
+
