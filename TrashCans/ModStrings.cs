@@ -8,26 +8,26 @@
  * @TODO: This is Mod Strings, no above Inspection is required.!
  */
 
-namespace SonJeremy.TrashCans.Mods
+namespace SonJeremy.TrashCans
 {
     public static class ModStrings
     {
-        public static LocString GasTrashCansID = "GasTrashCans";
+        public static string GasTrashCansID = "GasTrashCans";
         public static LocString GasTrashCansName = "Gas Trash Cans";
         public static LocString GasTrashCansEffect = "Store <link=\"ELEMENTSGAS\">Gas</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a cans.";
         public static LocString GasTrashCansDescription = "When the air’s full of unwanted gases, your colony could be suffocating from the excess. Expel useless gases that don’t belong in your atmosphere. Breathe easy!";
 
-        public static LocString SolidTrashCansID = "SolidTrashCans";
+        public static string SolidTrashCansID = "SolidTrashCans";
         public static LocString SolidTrashCansName = "Solid Trash Cans";
         public static LocString SolidTrashCansEffect = "Store <link=\"ELEMENTSSOLID\">Solid</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a unpacked solid.";
         public static LocString SolidTrashCansDescription= "Rocks, dirt, and debris can accumulate fast.  Don't let a pile of junk weigh you down—store it away, and focus on building your colony's future!";
 
-        public static LocString LiquidTrashCansID = "LiquidTrashCans";
+        public static string LiquidTrashCansID = "LiquidTrashCans";
         public static LocString LiquidTrashCansName = "Liquid Trash Cans";
         public static LocString LiquidTrashCansEffect = "Store <link=\"ELEMENTSLIQUID\">Liquid</link> items as normal Storage for auto or manual empty trash. If filter is set, wrong item will drop as a cans.";
         public static LocString LiquidTrashCansDescription = "Out with the old, in with the new. Liquids that no longer serve a purpose have a place to go! Send excess liquids to oblivion! No more unwanted puddles cluttering your base.!";
         
-        public static LocString ArtifactTrashCansID = "ArtifactTrashCans";
+        public static string ArtifactTrashCansID = "ArtifactTrashCans";
         public static LocString ArtifactTrashCansName = "Artifact Trash Cans";
         public static LocString ArtifactTrashCansEffect = "Store Artifact items in Special Storage for auto or manual empty trash.";
         public static LocString ArtifactTrashCansDescription = "We know, artifacts can be valuable... but sometimes they just take up too much room. Say goodbye to relics gathering dust!";
@@ -71,22 +71,8 @@ namespace SonJeremy.TrashCans.Mods
         {
             public static class STATUSITEMS
             {
-                public static class GASTRASHCANS
-                {
-                    public static class AUTO_TRASH
-                    {
-                        public static LocString TOOLTIP = "Trash Cans will {TRASHCANS_STATUS_TOOLTIP}";
-                        public static LocString NAME = "Auto Trash: <b>{TRASHCANS_AUTO_TRASH_STATUS}</b>";
-                    }
-
-                    public static class FILTER_STATE
-                    {
-                        public static LocString TOOLTIP = "{TRASHCANS_FILTER_STATE_TOOLTIP}";
-                        public static LocString NAME = "Filter State: <b>{TRASHCANS_FILTER_STATE_STATUS}</b>";
-                    }
-                }
                 
-                public static class SOLIDTRASHCANS
+                public static class ALLTRASHCANS
                 {
                     public static class AUTO_TRASH
                     {
@@ -98,30 +84,6 @@ namespace SonJeremy.TrashCans.Mods
                     {
                         public static LocString TOOLTIP = "{TRASHCANS_FILTER_STATE_TOOLTIP}";
                         public static LocString NAME = "Filter State: <b>{TRASHCANS_FILTER_STATE_STATUS}</b>";
-                    }
-                }
-
-                public static class LIQUIDTRASHCANS
-                {
-                    public static class AUTO_TRASH
-                    {
-                        public static LocString TOOLTIP = "Trash Cans will {TRASHCANS_STATUS_TOOLTIP}";
-                        public static LocString NAME = "Auto Trash: <b>{TRASHCANS_AUTO_TRASH_STATUS}</b>";
-                    }
-
-                    public static class FILTER_STATE
-                    {
-                        public static LocString TOOLTIP = "{TRASHCANS_FILTER_STATE_TOOLTIP}";
-                        public static LocString NAME = "Filter State: <b>{TRASHCANS_FILTER_STATE_STATUS}</b>";
-                    }
-                }
-
-                public static class ARTIFACTTRASHCANS
-                {
-                    public static class AUTO_TRASH
-                    {
-                        public static LocString TOOLTIP = "Trash Cans will {TRASHCANS_STATUS_TOOLTIP}";
-                        public static LocString NAME = "Auto Trash: <b>{TRASHCANS_AUTO_TRASH_STATUS}</b>";
                     }
                 }
             }
@@ -132,6 +94,7 @@ namespace SonJeremy.TrashCans.Mods
             public static class TRASH_CANS
             {
                 public static LocString SOLID_STORAGE_UNIT = "Kg";
+                public static LocString UNKNOWN_TYPE = "Not Type Of Trash Cans";
 
                 public static LocString TRASHCANS_STATUS_TOOLTIP_DISABLED = "<b>NOT</b> auto empty trash.!";
                 public static LocString TRASHCANS_STATUS_TOOLTIP_ENABLED = "auto empty in <b>{NEXT_AUTO_TRASH_SECOND}s</b> from an total of <b>{TOTAL_WAIT_TIME}s</b>.";

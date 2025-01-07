@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using PeterHan.PLib;
 using PeterHan.PLib.Options;
 
-namespace SonJeremy.TrashCans.Mods
+namespace SonJeremy.TrashCans
 {
     [Serializable]
     [RestartRequired]
