@@ -258,6 +258,8 @@ paket-files/
 *.cmd
 Assets/
 *.lnk
+!/**/ModInfo/Animations/assets
+!/**/ModInfo/Animations/assets/*
 
 # User Defined Files & Folder
 OxygenNotIncludedMod.sln.DotSettings.user
