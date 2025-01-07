@@ -102,7 +102,7 @@ namespace SonJeremy.TrashCans
             GetComponent<KSelectable>().AddStatusItem(AutoTrashStatus, this);
 
             if (TrashCansType == "ARTIFACTTRASHCANS") return;
-            if (ModOptions.Instance.SolidTrashCansEnableAutoDelivery == false) return;
+            if (TrashCansType == "SOLIDTRASHCANS" && ModOptions.Instance.SolidTrashCansEnableAutoDelivery == false) return;
 
             var FilterStateStatus = new StatusItem("ALLTRASHCANS.FILTER_STATE", "BUILDING", string.Empty,
                 StatusItem.IconType.Info, NotificationType.Neutral, false, OverlayModes.None.ID)
@@ -269,7 +269,7 @@ namespace SonJeremy.TrashCans
 
         private void DropItems()
         {
-            if (BaseStorage == null || !(BaseStorage.MassStored() > 0)) return;
+            if (BaseStorage == null || BaseStorage.IsEmpty() == true) return;
             
             if (GetComponent<Operational>().IsOperational == true) 
                 this.FindComponent<TrashCansMachineState>().PlayWorkable();
