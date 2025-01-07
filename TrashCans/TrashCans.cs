@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using KSerialization;
-using SonJeremy.TrashCans.Mods;
+
 using SonJeremy.TrashCans.SideScreenUI;
 using SonJeremy.TrashCans.MachineState;
 using SonJeremy.TrashCans.AutoConsumption;
@@ -52,10 +52,7 @@ namespace SonJeremy.TrashCans
 
             Subscribe((int) GameHashes.RefreshUserMenu, OnRefresh);
 
-            var AutoTrashStatusType = $"{TrashCansType}.AUTO_TRASH";
-            var FilterStateStatusType = $"{TrashCansType}.FILTER_STATE";
-
-            var AutoTrashStatus = new StatusItem(AutoTrashStatusType, "BUILDING", string.Empty,
+            var AutoTrashStatus = new StatusItem("ALLTRASHCANS.AUTO_TRASH", "BUILDING", string.Empty,
                 StatusItem.IconType.Info, NotificationType.Neutral, false, OverlayModes.None.ID)
             {
                 resolveStringCallback = (StringInfo, GameObject) =>
@@ -105,8 +102,9 @@ namespace SonJeremy.TrashCans
             GetComponent<KSelectable>().AddStatusItem(AutoTrashStatus, this);
 
             if (TrashCansType == "ARTIFACTTRASHCANS") return;
+            if (ModOptions.Instance.SolidTrashCansEnableAutoDelivery == false) return;
 
-            var FilterStateStatus = new StatusItem(FilterStateStatusType, "BUILDING", string.Empty,
+            var FilterStateStatus = new StatusItem("ALLTRASHCANS.FILTER_STATE", "BUILDING", string.Empty,
                 StatusItem.IconType.Info, NotificationType.Neutral, false, OverlayModes.None.ID)
             {
                 resolveStringCallback = (StringInfo, GameObject) =>
@@ -133,8 +131,8 @@ namespace SonJeremy.TrashCans
                                 break;
                         }
 
-                        StringInfo = StringInfo.Replace("{TRASHCANS_FILTER_STATE_STATUS}", FilterState == true 
-                            ? ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_SET 
+                        StringInfo = StringInfo.Replace("{TRASHCANS_FILTER_STATE_STATUS}", FilterState == true
+                            ? ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_SET
                             : ModStrings.UI.TRASH_CANS.TRASHCANS_FILTER_STATE_NOT_SET);
                     }
 
@@ -154,27 +152,22 @@ namespace SonJeremy.TrashCans
                             case "SOLIDTRASHCANS":
                                 FilterState = SolidAutoTrashCans.IsFiltered;
                                 ToolTipEnabled = ModStrings.UI.TRASH_CANS.SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED;
-                                ToolTipDisabled = ModStrings.UI.TRASH_CANS
-                                    .SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED;
+                                ToolTipDisabled = ModStrings.UI.TRASH_CANS.SOLID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED;
                                 break;
                             case "LIQUIDTRASHCANS":
                                 FilterState = FluidAutoTrashCans.IsFiltered;
                                 ToolTipEnabled = ModStrings.UI.TRASH_CANS.LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_ENABLED;
-                                ToolTipDisabled = ModStrings.UI.TRASH_CANS
-                                    .LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED;
+                                ToolTipDisabled = ModStrings.UI.TRASH_CANS.LIQUID_TRASHCANS_FILTER_STATE_TOOLTIP_DISABLED;
                                 break;
                             default:
                                 FilterState = false;
-                                ToolTipEnabled = null;
-                                ToolTipDisabled = null;
+                                ToolTipEnabled = ToolTipDisabled = ModStrings.UI.TRASH_CANS.UNKNOWN_TYPE;
                                 break;
                         }
 
                         StringInfo = FilterState == true
-                            ? StringInfo.Replace("{TRASHCANS_FILTER_STATE_TOOLTIP}",
-                                ToolTipEnabled ?? "Not Type Of Trash Cans")
-                            : StringInfo.Replace("{TRASHCANS_FILTER_STATE_TOOLTIP}",
-                                ToolTipDisabled ?? "Not Type Of Trash Cans");
+                            ? StringInfo.Replace("{TRASHCANS_FILTER_STATE_TOOLTIP}", ToolTipEnabled)
+                            : StringInfo.Replace("{TRASHCANS_FILTER_STATE_TOOLTIP}", ToolTipDisabled);
                     }
 
                     return StringInfo;
@@ -230,7 +223,12 @@ namespace SonJeremy.TrashCans
             SerializeWaitTime = UpdateWaitTime;
         }
 
-        public void UpdateWaitTime(float SimSecond) => SerializeCurrentTime += SimSecond;
+        public void UpdateWaitTime(float SimSecond)
+        {
+            if (BaseStorage == null || BaseStorage.IsEmpty() == true) return;
+            
+            SerializeCurrentTime += SimSecond;
+        }
 
         public void ResetWaitTime() => SerializeCurrentTime = 0;
 
@@ -271,15 +269,12 @@ namespace SonJeremy.TrashCans
 
         private void DropItems()
         {
-            Storage TrashCansStorage = this.FindComponent<Storage>();
+            if (BaseStorage == null || !(BaseStorage.MassStored() > 0)) return;
+            
+            if (GetComponent<Operational>().IsOperational == true) 
+                this.FindComponent<TrashCansMachineState>().PlayWorkable();
 
-            if (TrashCansStorage != null && TrashCansStorage.MassStored() > 0)
-            {
-                if (GetComponent<Operational>().IsOperational == true) 
-                    this.FindComponent<TrashCansMachineState>().PlayWorkable();
-
-                TrashCansStorage.DropAll();
-            }
+            BaseStorage.DropAll();
         }
 
         private string GetSideScreenButtonText()
