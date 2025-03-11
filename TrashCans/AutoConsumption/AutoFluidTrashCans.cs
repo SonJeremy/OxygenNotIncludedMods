@@ -3,7 +3,6 @@
 using System.Linq;
 using System.Collections.Generic;
 
-using PeterHan.PLib.Core;
 using SonJeremy.TrashCans.MachineState;
 using SonJeremy.SModUtil.OxygenNotIncluded;
 
@@ -23,11 +22,9 @@ namespace SonJeremy.TrashCans.AutoConsumption
         
         private const float ConsumptionRate = 25f;
         
-        private FilteredStorage SolidTrashCansFilterable;
+        private FilteredStorage FluidTrashCansFilterable;
         private readonly Operational.State OperatingState;
         private SimHashes LastConsumedFluid = SimHashes.Vacuum;
-        private FlowUtilityNetwork.NetworkItem FluidNetworkFlow;
-
         
         public AutoFluidTrashCans(Operational.State OperatingState)
         {
@@ -68,7 +65,7 @@ namespace SonJeremy.TrashCans.AutoConsumption
             var ControlledCapacity = new FilterableTrashCans { Storage = FluidStorage };
             var TrashCansChore = Db.Get().ChoreTypes.Get(Db.Get().ChoreTypes.StorageFetch.Id);
 
-            SolidTrashCansFilterable = new FilteredStorage(this, null, (IUserControlledCapacity) ControlledCapacity.GetUserControlledCapacity(), false, TrashCansChore);
+            FluidTrashCansFilterable = new FilteredStorage(this, null, (IUserControlledCapacity) ControlledCapacity.GetUserControlledCapacity(), false, TrashCansChore);
         }
 
         protected override void OnSpawn()
@@ -78,19 +75,15 @@ namespace SonJeremy.TrashCans.AutoConsumption
             RefreshFilteredTag();
 
             InputCell = GetInputCell();
-
-            CreateConduitConsumer(FluidConduitType, InputCell, out FluidNetworkFlow);
+            
             GetConduitFlow().AddConduitUpdater(ConduitUpdate, ConduitFlowPriority.First);
         }
 
         protected override void OnCleanUp()
         {
             base.OnCleanUp();
-            SolidTrashCansFilterable.CleanUp();
+            FluidTrashCansFilterable.CleanUp();
             GetConduitFlow().RemoveConduitUpdater(ConduitUpdate);
-            
-            Conduit.GetNetworkManager(FilterablePortInfo.conduitType).RemoveFromNetworks(InputCell, FluidNetworkFlow, true);
-            Conduit.GetNetworkManager(FilterablePortInfo.conduitType).ForceRebuildNetworks();
         }
 
         private int GetInputCell()
@@ -142,7 +135,7 @@ namespace SonJeremy.TrashCans.AutoConsumption
             if (OperationalStateRequirement == false) return;
 
             var ContentMass = PipedFluidContents.mass;
-            var ConsumptionMass = Mathf.Min(ContentMass.GetPercent(0.9), ConsumptionRate * TickTime);
+            var ConsumptionMass = Mathf.Min(ContentMass, ConsumptionRate * TickTime);
 
             var PipedElements = ElementLoader.FindElementByHash(PipedFluidContents.element);
 
@@ -164,7 +157,6 @@ namespace SonJeremy.TrashCans.AutoConsumption
             }
             else if (FilteredTags.Count != 0 && IsFilterThisFluid == false)
             {
-
                 PipedFluidContents.ConsolidateMass();
                 FluidFlow.RemoveElement(InputCell, ContentMass);
 
@@ -191,7 +183,7 @@ namespace SonJeremy.TrashCans.AutoConsumption
                         break;
                     }
 
-                    PUtil.LogWarning($"Non-Gas Type On Gas Trash Cans: {PipedElements.id.ToString()}");
+                    SUtil.LogWarning($"Non-Gas Type On Gas Trash Cans: {PipedElements.id.ToString()}");
                     break;
                 case ConduitType.Liquid:
                     if (PipedElements.IsLiquid)
@@ -204,13 +196,13 @@ namespace SonJeremy.TrashCans.AutoConsumption
                         break;
                     }
 
-                    PUtil.LogWarning($"Non-Liquid Type On Liquid Trash Cans: {PipedElements.id.ToString()}");
+                    SUtil.LogWarning($"Non-Liquid Type On Liquid Trash Cans: {PipedElements.id.ToString()}");
                     break;
                 default:
                 case ConduitType.MAX:
                 case ConduitType.None:
                 case ConduitType.Solid:
-                    PUtil.LogWarning($"Non Serve This Type Of Material Send To Trash Cans: {PipedElements.id.ToString()}");
+                    SUtil.LogWarning($"Not Serve This Type Of Material Send To Trash Cans: {PipedElements.id.ToString()}");
                     break;
             }
         }
@@ -219,24 +211,17 @@ namespace SonJeremy.TrashCans.AutoConsumption
         {
             FilterTree = this.FindComponent<TreeFilterable>();
 
+            if (FilterTree == null)
+            {
+                SUtil.LogWarning($"No FilterTree Was Found.");
+                return;
+            }
+
             var ChangedTags = FilterTree.GetTags();
 
             var ChangedFilteredTags = ChangedTags.Where(Tag => Tag != null).ToList();
 
             FilteredTags = ChangedFilteredTags;
-        }
-
-        private void CreateConduitConsumer(ConduitType FluidType, int SecondaryInputCell, out FlowUtilityNetwork.NetworkItem FluidNetworkItem)
-        {
-            var FluidConsumer = gameObject.AddComponent<ConduitConsumer>();
-
-            FluidConsumer.conduitType = FluidType;
-            FluidConsumer.useSecondaryInput = true;
-
-            var FluidNetworkManager = Conduit.GetNetworkManager(FluidType);
-
-            FluidNetworkItem = new FlowUtilityNetwork.NetworkItem(FluidType, Endpoint.Sink, SecondaryInputCell, gameObject);
-            FluidNetworkManager.AddToNetworks(InputCell, FluidNetworkItem, true);
         }
     }
 }

@@ -42,6 +42,7 @@ namespace SonJeremy.TrashCans.BuildingConfig
                 ViewMode = OverlayModes.LiquidConduits.ID,
 
                 Ingredients = { new BuildIngredient(MATERIALS.REFINED_METALS, tier: 2) },
+                InputConduits = { new ConduitConnection(ConduitType.Liquid, new CellOffset(0, 0)) },
                 LogicIO = { PBuilding.CompatLogicPort(LogicPortSpriteType.Input, new CellOffset(0, 1)) }
             };
 
@@ -119,8 +120,8 @@ namespace SonJeremy.TrashCans.BuildingConfig
             LiquidTrashCansGameObject.AddOrGet<LogicOperationalController>();
             LiquidTrashCansGameObject.AddOrGetDef<RocketUsageRestriction.Def>();
 
-            var AutoTrashCans = LiquidTrashCansGameObject.AddOrGet<AutoFluidTrashCans>();
-            AutoTrashCans.FluidConduitType = ConduitType.Liquid;
+            LiquidTrashCansGameObject.AddOrGet<RequireInputs>().requireConduitHasMass = false;
+            LiquidTrashCansGameObject.AddOrGet<AutoFluidTrashCans>().FluidConduitType = ConduitType.Liquid;
 
             LiquidTrashCansGameObject.AddComponent<TrashCans>();
             LiquidTrashCansGameObject.AddOrGet<TrashCansMachineState>();
