@@ -1,6 +1,6 @@
 # Son Jeremy&#39;s Mods for Oxygen Not Included
 
-Last tested on game version: **U54-651155**
+Last tested on game version: **U54-652372**
 
 **No support** for Public Testing branches, including the rolled back Legacy Vanilla (CS-469300).
 
