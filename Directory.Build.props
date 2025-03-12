@@ -9,7 +9,7 @@
     </ItemDefinitionGroup>
 
     <ItemGroup Condition=" '$(SModUtil)' != 'true' ">
-        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.26">
+        <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.40">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
     </ItemGroup>
