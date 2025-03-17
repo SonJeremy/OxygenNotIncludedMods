@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <CopyPreview>true</CopyPreview>
-    <AssemblyTitle>Trash Cans</AssemblyTitle>
-    <FileVersion>1.0.3.4</FileVersion>
-    <RootNamespace>SonJeremy.TrashCans</RootNamespace>
-    <Description>Keep your colony tidy! Trash Cans help dispose of unused elements, from gases to artifacts. A Re-work of original mod.</Description>
-    <AssemblyVersion>1.0.3.4</AssemblyVersion>
-    <LastWorkingBuild>651155</LastWorkingBuild>
-    <Platforms>Vanilla;Mergedown</Platforms>
-    <TargetFramework>net48</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <CopyPreview>true</CopyPreview>
+        <AssemblyTitle>Trash Cans</AssemblyTitle>
+        <FileVersion>1.0.3.5</FileVersion>
+        <RootNamespace>SonJeremy.TrashCans</RootNamespace>
+        <Description>Keep your colony tidy! Trash Cans help dispose of unused elements, from gases to artifacts. A Re-work of original mod.</Description>
+        <AssemblyVersion>1.0.3.5</AssemblyVersion>
+        <LastWorkingBuild>651155</LastWorkingBuild>
+        <Platforms>Vanilla;Mergedown</Platforms>
+        <TargetFramework>net48</TargetFramework>
+        <SupportedContent>ALL</SupportedContent>
+    </PropertyGroup>
 </Project>
