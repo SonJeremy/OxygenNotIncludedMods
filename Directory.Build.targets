@@ -19,7 +19,7 @@
         $(GameFolder)/UnityEngine.InputLegacyModule.dll $(GameFolder)/Unity.TextMeshPro.dll ^
         $(GameFolder)/UnityEngine.TextRenderingModule.dll $(GameFolder)/UnityEngine.UI.dll ^
         $(GameFolder)/Ionic.Zip.dll $(GameFolder)/Newtonsoft.Json.dll ^
-        $(GameFolder)/com.rlabrecque.steamworks.net.dll" IgnoreExitCode="true" />
+        $(GameFolder)/com.rlabrecque.steamworks.net.dll" IgnoreExitCode="true"/>
     </Target>
 
     <Target Name="ClearGameFolderCopyLocal" AfterTargets="ResolveAssemblyReferences">
@@ -50,9 +50,9 @@
         <PropertyGroup>
             <ModDescriptionFile>$(IntermediateOutputPath)\mod.yaml</ModDescriptionFile>
             <ModDescriptionFileContent>
-title: "$(AssemblyTitle)"
-description: "$(Description)"
-staticID: SonJeremy.$(AssemblyName)
+                title: "$(AssemblyTitle)"
+                description: "$(Description)"
+                staticID: SonJeremy.$(AssemblyName)
             </ModDescriptionFileContent>
         </PropertyGroup>
         <WriteLinesToFile File="$(ModDescriptionFile)" Overwrite="true" Lines="$(ModDescriptionFileContent)"/>
@@ -62,26 +62,26 @@ staticID: SonJeremy.$(AssemblyName)
         <PropertyGroup Condition=" '$(AssemblyName)' == 'PLib' ">
             <Internalize>false</Internalize>
         </PropertyGroup>
-        
+
         <PropertyGroup Condition=" '$(AssemblyName)' != 'PLib' ">
             <Internalize>true</Internalize>
         </PropertyGroup>
-        
+
         <ItemGroup Condition=" '$(UsePLib)' != 'false' ">
             <InputAssemblies Include="$(TargetPath)"/>
             <InputAssemblies Include="../ModResource/PLib/Latest/PLib.dll"/>
-            <InputAssemblies Condition=" '$(UseSModUtil)' != 'fasle' "  Include="$(TargetDir)SModUtil.dll"/>
+            <InputAssemblies Condition=" '$(UseSModUtil)' != 'fasle' " Include="$(TargetDir)SModUtil.dll"/>
         </ItemGroup>
-        
+
         <ItemGroup Condition=" '$(UsePLib)' == 'false' ">
             <InputAssemblies Include="$(TargetPath)"/>
-            <InputAssemblies Condition=" '$(UseSModUtil)' != 'fasle' "  Include="$(TargetDir)SModUtil.dll"/>
+            <InputAssemblies Condition=" '$(UseSModUtil)' != 'fasle' " Include="$(TargetDir)SModUtil.dll"/>
         </ItemGroup>
-        
+
         <ILRepack
-                TargetPlatformVersion="v4" TargetKind="SameAsPrimaryAssembly" OutputFile="$(TargetPath)" 
-                InputAssemblies="@(InputAssemblies)" XmlDocumentation="true" Internalize="$(Internalize)" 
-                Wildcards="true" LibraryPath="$(GameFolder)"
+            TargetPlatformVersion="v4" TargetKind="SameAsPrimaryAssembly" OutputFile="$(TargetPath)"
+            InputAssemblies="@(InputAssemblies)" XmlDocumentation="true" Internalize="$(Internalize)"
+            Wildcards="true" LibraryPath="$(GameFolder)"
         />
     </Target>
 
@@ -89,11 +89,11 @@ staticID: SonJeremy.$(AssemblyName)
         <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
             <RootInstallFolder>..\Release\$(ProjectName)</RootInstallFolder>
         </PropertyGroup>
-        
+
         <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
             <RootInstallFolder>$(ModFolder)\$(ProjectName)</RootInstallFolder>
         </PropertyGroup>
-        
+
         <PropertyGroup>
             <InstallFolder>$(RootInstallFolder)$(ArchivedVersionPath)</InstallFolder>
         </PropertyGroup>
@@ -115,7 +115,7 @@ staticID: SonJeremy.$(AssemblyName)
         <Copy SourceFiles="$(ModInfoFile)" DestinationFolder="$(InstallFolder)"/>
         <Copy SourceFiles="$(ModDescriptionFile)" DestinationFolder="$(RootInstallFolder)"/>
         <Copy SourceFiles="$(ProjectDir)\ModInfo\ArtWork\Preview.png" DestinationFiles="$(InstallFolder)\preview.png" Condition=" $(CopyPreview) == true And Exists('$(ProjectDir)\ModInfo\ArtWork\Preview.png') == true"/>
-        
+
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
     </Target>
 </Project>
