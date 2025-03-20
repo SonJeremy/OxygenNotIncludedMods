@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json.schemastore.org/template.json",
+  "author": "Lê Minh Sơn",
+  "classifications": [
+    "class"
+  ],
+  "name": "Oxygen Not Included Mod Template",
+  "identity": "SonJeremy.Template",
+  "groupIdentity": "SonJeremy.Template",
+  "shortName": "Oxygen Included Mod Template",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "ModTemplate",
+  "preferNameDirectory": true,
+  "symbols": {
+    "AskUsePLib": {
+      "datatype": "bool",
+      "type": "parameter",
+      "defaultValue": "true",
+      "displayName": "Use PLib"
+    },
+    "UsePLib": {
+      "type": "computed",
+      "value": "AskUsePLib == false"
+    },
+    "AskUseSModUtil": {
+      "datatype": "bool",
+      "type": "parameter",
+      "defaultValue": "true",
+      "displayName": "Use SModUtil"
+    },
+    "UseSModUtil": {
+      "type": "computed",
+      "value": "AskUseSModUtil == false"
+    },
+    "AskUsePublicized": {
+      "datatype": "bool",
+      "type": "parameter",
+      "defaultValue": "true",
+      "displayName": "Use Publicized"
+    },
+    "ModName": {
+      "type": "parameter",
+      "replaces": "TemplateName",
+      "defaultValue": "TemplateName",
+      "displayName": "Mod Name"
+    },
+    "ClassName": {
+      "type": "parameter",
+      "replaces": "ModTemplate",
+      "defaultValue": "ModTemplate",
+      "displayName": "Mod Class Name"
+    },
+    "ModVersion": {
+      "type": "parameter",
+      "replaces": "ModVersion",
+      "defaultValue": "1.0.0.0",
+      "displayName": "Mod Version"
+    },
+    "ModDescription": {
+      "type": "parameter",
+      "displayName": "Mod Description",
+      "replaces": "ModDescription",
+      "defaultValue": ""
+    },
+    "SupportedDLC": {
+      "type": "parameter",
+      "replaces": "ModSupportedContent",
+      "defaultValue": "ALL",
+      "displayName": "Supported DLC",
+      "description": "Specify what DLC be supported (ALL, VANILLA_ID, EXPANSION1_ID, DLC2_ID, DLC3_ID)"
+    },
+    "LastWorkingBuild": {
+      "type": "parameter",
+      "replaces": "ModLastWorkingBuild",
+      "defaultValue": "",
+      "displayName": "Last Working Build",
+      "description": "Minimum working game version (Ex: 651155)"
+    },
+    "BuildPlatform": {
+      "type": "parameter",
+      "datatype": "choice",
+      "replaces": "ModBuildPlatform",
+      "displayName": "Build Platform",
+      "choices": [
+        {
+          "choice": "Vanilla",
+          "description": "Vanilla Build Only"
+        },
+        {
+          "choice": "Mergedown",
+          "description": "SpacedOut & DLC Build Only"
+        },
+        {
+          "choice": "Vanilla;Mergedown",
+          "description": "All Platform"
+        }
+      ],
+      "defaultValue": "Vanilla;Mergedown"
+    }
+  }
+}

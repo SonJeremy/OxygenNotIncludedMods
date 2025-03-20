@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <CopyPreview>true</CopyPreview>
+        <!--#if UsePublicized-->
+        <UsePublicized>true</UsePublicized>
+        <!--#endif-->
+        <!--#if UsePLib-->
+        <UsePLib>false</UsePLib>
+        <!--#endif-->
+        <!--#if UseSModUtil-->
+        <UseSModUtil>false</UseSModUtil>
+        <!--#endif-->
+        <AssemblyTitle>TemplateName</AssemblyTitle>
+        <FileVersion>ModVersion</FileVersion>
+        <RootNamespace>SonJeremy.ModTemplate</RootNamespace>
+        <Description>ModDescription</Description>
+        <AssemblyVersion>ModVersion</AssemblyVersion>
+        <LastWorkingBuild>ModLastWorkingBuild</LastWorkingBuild>
+        <Platforms>ModBuildPlatform</Platforms>
+        <TargetFramework>net48</TargetFramework>
+        <SupportedContent>ModSupportedContent</SupportedContent>
+    </PropertyGroup>
+</Project>
