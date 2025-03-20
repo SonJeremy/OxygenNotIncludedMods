@@ -114,7 +114,7 @@ staticID: SonJeremy.$(AssemblyName)
         <Copy SourceFiles="@(YamlFiles)" DestinationFolder="$(InstallFolder)"/>
         <Copy SourceFiles="$(ModInfoFile)" DestinationFolder="$(InstallFolder)"/>
         <Copy SourceFiles="$(ModDescriptionFile)" DestinationFolder="$(RootInstallFolder)"/>
-        <Copy SourceFiles="$(ProjectDir)\ModInfo\ArtWork\Preview.png" DestinationFiles="$(InstallFolder)\preview.png" Condition=" $(CopyPreview) == true "/>
+        <Copy SourceFiles="$(ProjectDir)\ModInfo\ArtWork\Preview.png" DestinationFiles="$(InstallFolder)\preview.png" Condition=" $(CopyPreview) == true And Exists('$(ProjectDir)\ModInfo\ArtWork\Preview.png') == true"/>
         
         <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(InstallFolder)\$(TargetFileName)"/>
     </Target>
