@@ -47,15 +47,16 @@
     </Target>
 
     <Target Name="WriteModDescriptionFile" BeforeTargets="PreBuildEvent" Condition=" '$(DistributeMod)' == 'true' ">
+        <ItemGroup>
+            <ModDescriptionFileContent Include="title: &quot;$(AssemblyTitle)&quot;"/>
+            <ModDescriptionFileContent Include="staticID: SonJeremy.$(AssemblyName)"/>
+            <ModDescriptionFileContent Include="description: &quot;$(Description)&quot;"/>
+        </ItemGroup>
+        
         <PropertyGroup>
             <ModDescriptionFile>$(IntermediateOutputPath)\mod.yaml</ModDescriptionFile>
-            <ModDescriptionFileContent>
-                title: "$(AssemblyTitle)"
-                description: "$(Description)"
-                staticID: SonJeremy.$(AssemblyName)
-            </ModDescriptionFileContent>
         </PropertyGroup>
-        <WriteLinesToFile File="$(ModDescriptionFile)" Overwrite="true" Lines="$(ModDescriptionFileContent)"/>
+        <WriteLinesToFile File="$(ModDescriptionFile)" Overwrite="true" Lines="@(ModDescriptionFileContent)"/>
     </Target>
 
     <Target Name="ILRepack" AfterTargets="Build" Condition=" '$(SModUtil)' != 'true' ">
