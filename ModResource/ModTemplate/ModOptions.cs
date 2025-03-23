@@ -1,14 +1,14 @@
 ﻿using System;
 using Newtonsoft.Json;
-//#if UsePLib
 
+#if AskUsePLib
 using PeterHan.PLib;
 using PeterHan.PLib.Options;
-//#endif
 
+#endif
 namespace SonJeremy.ModTemplate
 {
-    //#if (UsePLib)
+    #if AskUsePLib
     [Serializable]
     [RestartRequired]
     [ConfigFile(IndentOutput: true, SharedConfigLocation: true)]
@@ -16,10 +16,10 @@ namespace SonJeremy.ModTemplate
     {
         
     }
-    //#else
+    #else
     public sealed class ModOptions
     {
         
     }
-    //#endif
+    #endif
 }

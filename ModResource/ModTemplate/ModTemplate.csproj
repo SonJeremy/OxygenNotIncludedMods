@@ -17,7 +17,15 @@
         <Description>ModDescription</Description>
         <AssemblyVersion>ModVersion</AssemblyVersion>
         <LastWorkingBuild>ModLastWorkingBuild</LastWorkingBuild>
-        <Platforms>ModBuildPlatform</Platforms>
+        <!--#if IsBuildPlatformVanilla-->
+        <Platforms>Vanilla</Platforms>
+        <!--#endif-->
+        <!--#if IsBuildPlatformMergedown-->
+        <Platforms>Mergedown</Platforms>
+        <!--#endif-->
+        <!--#if IsBuildPlatformAll-->
+        <Platforms>Vanilla;Mergedown</Platforms>
+        <!--#endif-->
         <TargetFramework>net48</TargetFramework>
         <SupportedContent>ModSupportedContent</SupportedContent>
     </PropertyGroup>

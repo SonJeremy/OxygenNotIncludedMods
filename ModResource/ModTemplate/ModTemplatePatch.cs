@@ -11,25 +11,25 @@
 using KMod;
 using TUNING;
 using HarmonyLib;
-//#if UsePLib
 
+#if AskUsePLib
 using PeterHan.PLib.AVC;
 using PeterHan.PLib.Core;
 using PeterHan.PLib.Options;
 using PeterHan.PLib.Database;
 using PeterHan.PLib.Buildings;
 using PeterHan.PLib.PatchManager;
-//#endif
 
+#endif
  namespace SonJeremy.ModTemplate
 {
     public sealed class ModTemplatePatch: UserMod2
     {
         public override void OnLoad(Harmony HarmonyInstance)
         {
-            base.OnLoad(HarmoryInstance);
+            #if AskUsePLib
+            base.OnLoad(HarmonyInstance);
 
-            #if (UsePLib)
             PUtil.InitLibrary();
             
             new PLocalization().Register();
@@ -38,7 +38,9 @@ using PeterHan.PLib.PatchManager;
             var BuildingManager = new PBuildingManager();
             
             new PVersionCheck().Register(this, new SteamVersionChecker());
-            new PPatchManager(HarmoryInstance).RegisterPatchClass(typeof(ModTemplatePatch));
+            new PPatchManager(HarmonyInstance).RegisterPatchClass(typeof(ModTemplatePatch));
+            #else
+            base.OnLoad(HarmonyInstance);
             #endif
         }
     }
