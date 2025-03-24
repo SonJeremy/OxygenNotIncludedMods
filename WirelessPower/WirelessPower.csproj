@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <CopyPreview>true</CopyPreview>
+        <AssemblyTitle>Wireless Power</AssemblyTitle>
+        <FileVersion>1.0.3.0</FileVersion>
+        <RootNamespace>SonJeremy.WirelessPower</RootNamespace>
+        <Description>Wirelessly accessable power through a network grid of batteries, senders and receivers. A Re-work of original mod.</Description>
+        <AssemblyVersion>1.0.3.0</AssemblyVersion>
+        <LastWorkingBuild>660455</LastWorkingBuild>
+        <Platforms>Vanilla;Mergedown</Platforms>
+        <TargetFramework>net48</TargetFramework>
+        <SupportedContent>ALL</SupportedContent>
+    </PropertyGroup>
+</Project>

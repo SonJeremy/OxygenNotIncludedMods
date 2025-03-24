@@ -5,6 +5,7 @@ namespace SonJeremy.SModUtil.OxygenNotIncluded
 {
     public static class SUtil
     {
+        public static readonly string NewLine = Environment.NewLine;
         public static void LogDebug(object Message) 
             => Debug.LogFormat("[{0}] {1}", Assembly.GetCallingAssembly().GetNameSafe(), Message);
         

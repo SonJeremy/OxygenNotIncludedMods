@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrashCans", "TrashCans\Tras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SModUtil", "SModUtil\SModUtil.csproj", "{19751E58-042B-42D2-A889-7B7DABA84C4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WirelessPower", "WirelessPower\WirelessPower.csproj", "{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mergedown = Debug|Mergedown
@@ -37,5 +39,13 @@ Global
 		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Mergedown.Build.0 = Release|Mergedown
 		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Vanilla.ActiveCfg = Release|Vanilla
 		{7405F3EA-6F9A-481D-9DE2-B6A4CFD60E87}.Release|Vanilla.Build.0 = Release|Vanilla
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Debug|Mergedown.ActiveCfg = Debug|Mergedown
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Debug|Mergedown.Build.0 = Debug|Mergedown
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Debug|Vanilla.ActiveCfg = Debug|Vanilla
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Debug|Vanilla.Build.0 = Debug|Vanilla
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Release|Mergedown.ActiveCfg = Release|Mergedown
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Release|Mergedown.Build.0 = Release|Mergedown
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Release|Vanilla.ActiveCfg = Release|Vanilla
+		{8AA12460-CC6C-4FE3-B122-D0A757DBFA0B}.Release|Vanilla.Build.0 = Release|Vanilla
 	EndGlobalSection
 EndGlobal
