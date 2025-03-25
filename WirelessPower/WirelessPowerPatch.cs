@@ -18,6 +18,7 @@ using PeterHan.PLib.Options;
 using PeterHan.PLib.Database;
 using PeterHan.PLib.Buildings;
 using PeterHan.PLib.PatchManager;
+using SonJeremy.WirelessPower.BuildingConfig;
 
 namespace SonJeremy.WirelessPower
 {
@@ -28,11 +29,17 @@ namespace SonJeremy.WirelessPower
             base.OnLoad(HarmonyInstance);
 
             PUtil.InitLibrary();
+            
+            LocString.CreateLocStringKeys(typeof(ModStrings.UI));
+            //LocString.CreateLocStringKeys(typeof(ModStrings.MISC));
+            //LocString.CreateLocStringKeys(typeof(ModStrings.BUILDING));
+            LocString.CreateLocStringKeys(typeof(ModStrings.BUILDINGS));
 
             new PLocalization().Register();
             new POptions().RegisterOptions(this, typeof(ModOptions));
 
             var BuildingManager = new PBuildingManager();
+            BuildingManager.Register(WirelessBatteryConfig.CreateBuilding());
 
             new PVersionCheck().Register(this, new SteamVersionChecker());
             new PPatchManager(HarmonyInstance).RegisterPatchClass(typeof(WirelessPowerPatch));
