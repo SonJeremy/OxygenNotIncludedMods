@@ -114,7 +114,7 @@ namespace SonJeremy.TrashCans
 
         [Option("STRINGS.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_DELIVERY", "STRINGS.UI.TRASH_CANS_OPTIONS.ENABLE_AUTO_DELIVERY_TOOLTIP", "STRINGS.UI.TRASH_CANS_OPTIONS.SOLID_CATEGORY")]
         [JsonProperty]
-        public bool SolidTrashCansEnableAutoDelivery { set; get; }
+        public bool SolidTrashCansEnableAutoDelivery { set; get; } = true;
 
 
         [Option("STRINGS.UI.TRASH_CANS_OPTIONS.CAN_OVER_HEAT", "", "STRINGS.UI.TRASH_CANS_OPTIONS.SOLID_CATEGORY")]
