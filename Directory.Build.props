@@ -55,7 +55,7 @@
         <LastWorkingBuild>0</LastWorkingBuild>
         <DistributeMod>true</DistributeMod>
         <UsePublicized>false</UsePublicized>
-        <PLibVersion>4.17.1.0</PLibVersion>
+        <PLibVersion>4.19.0.0</PLibVersion>
         <DefineConstants>MERGEDOWN</DefineConstants>
         <APIVersion>2</APIVersion>
         <ModInfoFile>$(IntermediateOutputPath)\mod_info.yaml</ModInfoFile>
