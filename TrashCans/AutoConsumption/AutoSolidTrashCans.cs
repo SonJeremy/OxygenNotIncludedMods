@@ -135,7 +135,7 @@ namespace SonJeremy.TrashCans.AutoConsumption
             return NetworkObject?.id ?? -1;
         }
 
-        private void RefreshFilteredTag()
+        public void RefreshFilteredTag()
         {
             FilterTree = this.FindComponent<TreeFilterable>();
 

@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System;
+using HarmonyLib;
 using UnityEngine;
 using KSerialization;
 
@@ -27,7 +28,6 @@ namespace SonJeremy.TrashCans
         [Serialize] private float SerializeWaitTime;
         [Serialize] private bool SerializeAutoTrash;
         [Serialize] private float SerializeCurrentTime;
-
         
         public string SidescreenButtonText => GetSideScreenButtonText();
 
@@ -51,6 +51,7 @@ namespace SonJeremy.TrashCans
             base.OnSpawn();
 
             Subscribe((int) GameHashes.RefreshUserMenu, OnRefresh);
+            Subscribe((int) GameHashes.CopySettings, OnCopySettings);
 
             var AutoTrashStatus = new StatusItem("ALLTRASHCANS.AUTO_TRASH", "BUILDING", string.Empty,
                 StatusItem.IconType.Info, NotificationType.Neutral, false, OverlayModes.None.ID)
@@ -311,6 +312,16 @@ namespace SonJeremy.TrashCans
                 default:
                     return ModStrings.UI.TRASH_CANS_SIDE_SCREEN.DROP_ITEMS_BUTTON.TOOLTIP;
             }
+        }
+        
+        private void OnCopySettings(object EventObject)
+        {
+            if (!(EventObject is GameObject EventGameObject) || EventGameObject == null) return;
+            
+            var TrashCansGameObject =  EventGameObject.GetComponent<TrashCans>();
+            
+            UpdateAutoTrashTime(Mathf.FloorToInt(TrashCansGameObject.WaitTime));
+            UpdateAutoTrashStatus(TrashCansGameObject.AutoTrash);
         }
     }
 }
