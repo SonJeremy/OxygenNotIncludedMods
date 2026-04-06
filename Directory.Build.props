@@ -35,6 +35,9 @@
         <Reference Include="UnityEngine.UI" HintPath="$(GameFolder)/UnityEngine.UI.dll"/>
         <Reference Include="UnityEngine.UIModule" HintPath="$(GameFolder)/UnityEngine.UIModule.dll"/>
     </ItemGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
+        <PackageReference Include="Lib.Harmony.Ref" Version="2.4.2"/>
+    </ItemGroup>
     <ItemGroup Condition=" '$(UsePLib)' != 'false' ">
         <Reference Include="PeterHan.PLib" HintPath="../ModResource/PLib/Latest/Plib.dll"/>
     </ItemGroup>
@@ -48,14 +51,14 @@
         <Product>SonJeremy Oxygen Not Included Mod</Product>
         <Authors>Son Jeremy</Authors>
         <Copyright>Copyright © Son Jeremy 2024</Copyright>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RequiredDLCs></RequiredDLCs>
         <ForbiddenDLCs></ForbiddenDLCs>
         <SupportedContent>VANILLA_ID,EXPANSION1_ID</SupportedContent>
         <LastWorkingBuild>0</LastWorkingBuild>
         <DistributeMod>true</DistributeMod>
         <UsePublicized>false</UsePublicized>
-        <PLibVersion>4.19.0.0</PLibVersion>
+        <PLibVersion>4.24.0.0</PLibVersion>
         <DefineConstants>MERGEDOWN</DefineConstants>
         <APIVersion>2</APIVersion>
         <ModInfoFile>$(IntermediateOutputPath)\mod_info.yaml</ModInfoFile>

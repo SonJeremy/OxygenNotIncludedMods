@@ -7,9 +7,9 @@
         <FileVersion>1.0.0.0</FileVersion>
         <DistributeMod>false</DistributeMod>
         <Platforms>Vanilla;Mergedown</Platforms>
-        <TargetFramework>net48</TargetFramework>
         <AssemblyTitle>SMod Util</AssemblyTitle>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <RootNamespace>SonJeremy.SModUtil</RootNamespace>
         <Description>Some utility features shared accross mod.</Description>
     </PropertyGroup>
