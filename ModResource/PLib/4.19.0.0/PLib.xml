@@ -681,6 +681,11 @@
             previewed.
             </summary>
         </member>
+        <member name="T:PeterHan.PLib.Buildings.ColoredRangeVisualizer.RegisterCellChangedHandlerNew">
+            <summary>
+            TODO Remove when versions prior to U57-699077 no longer need to be supported
+            </summary>
+        </member>
         <member name="F:PeterHan.PLib.Buildings.ColoredRangeVisualizer.ANIM_NAME">
             <summary>
             The anim name to use when visualizing.
@@ -721,11 +726,21 @@
             Called when cells are changed in the building radius.
             </summary>
         </member>
+        <member name="M:PeterHan.PLib.Buildings.ColoredRangeVisualizer.OnRotated(System.Object)">
+            <summary>
+            Called when the object is rotated.
+            </summary>
+        </member>
         <member name="M:PeterHan.PLib.Buildings.ColoredRangeVisualizer.OnSelect(System.Object)">
             <summary>
             Called when the object is selected.
             </summary>
             <param name="data">true if selected, or false if deselected.</param>
+        </member>
+        <member name="M:PeterHan.PLib.Buildings.ColoredRangeVisualizer.RegisterCellChangedHandler">
+            <summary>
+            Adds the cell changed handler.
+            </summary>
         </member>
         <member name="M:PeterHan.PLib.Buildings.ColoredRangeVisualizer.RemoveVisualizers">
             <summary>
@@ -740,6 +755,11 @@
             <param name="baseCell">The starting cell.</param>
             <param name="offset">The offset if the building had its default rotation.</param>
             <returns>The computed destination cell.</returns>
+        </member>
+        <member name="M:PeterHan.PLib.Buildings.ColoredRangeVisualizer.UnregisterCellChangedHandler">
+            <summary>
+            Removes the cell changed handler.
+            </summary>
         </member>
         <member name="M:PeterHan.PLib.Buildings.ColoredRangeVisualizer.VisualizeCells(System.Collections.Generic.ICollection{PeterHan.PLib.Buildings.ColoredRangeVisualizer.VisCellData})">
             <summary>
@@ -1248,6 +1268,16 @@
             </summary>
             <typeparam name="T">The value type to be unboxed.</typeparam>
         </member>
+        <member name="F:PeterHan.PLib.Core.AutoUnbox`1.DATA_BOX">
+            <summary>
+            If boxing is required, gets the data from the object.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Core.AutoUnbox`1.DATA_UNBOX">
+            <summary>
+            If unboxing is required, gets the data from the object.
+            </summary>
+        </member>
         <member name="M:PeterHan.PLib.Core.AutoUnbox`1.Box(`0)">
             <summary>
             Boxes the specified object.
@@ -1389,14 +1419,6 @@
             <param name="type">The class to modify.</param>
             <param name="methodName">The method to patch.</param>
             <param name="transpiler">The transpiler to apply.</param>
-        </member>
-        <member name="M:PeterHan.PLib.Core.ExtensionMethods.RoundTo(System.Single,System.Single)">
-            <summary>
-            Coerces a floating point number to the nearest multiple of the increment.
-            </summary>
-            <param name="value">The original number.</param>
-            <param name="increment">The nearest increment to which to round.</param>
-            <returns>The nearest value that is a multiple of increment to value.</returns>
         </member>
         <member name="M:PeterHan.PLib.Core.ExtensionMethods.SetParent(UnityEngine.GameObject,UnityEngine.GameObject)">
             <summary>
@@ -1662,6 +1684,16 @@
             Refreshes the simple info screen.
             </summary>
         </member>
+        <member name="F:PeterHan.PLib.Core.PGameUtils.CHECK_SUBSCRIPTION">
+            <summary>
+            Checks to see if a DLC is subscribed on the platform (Steam/Epic).
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Core.PGameUtils.IS_CONTENT_ENABLED">
+            <summary>
+            Checks to see if the DLC is turned on in the game options.
+            </summary>
+        </member>
         <member name="M:PeterHan.PLib.Core.PGameUtils.CenterAndSelect(KMonoBehaviour)">
             <summary>
             Centers and selects an entity.
@@ -1747,8 +1779,8 @@
              should only be used to show or hide items that require a game restart to change
              like the Spaced Out multi-planet/rocketry modes.
              </summary>
-            <param name="name">The DLC name to check.</param>
-            <returns>true if that DLC is subscribed and owned, or false otherwise.</returns>
+            <param name="name" />
+            <returns />
         </member>
         <member name="M:PeterHan.PLib.Core.PGameUtils.PlaySound(System.String,UnityEngine.Vector3)">
             <summary>
@@ -1879,11 +1911,6 @@
             <summary>
             The mod version in Mod Options if specified via AssemblyFileVersion, where {0} is
             substituted with the version text.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Core.PLibStrings.OPTIONS_FILTERED">
-            <summary>
-            A placeholder string to display in a drop down if all the options are filtered out.
             </summary>
         </member>
         <member name="F:PeterHan.PLib.Core.PLibStrings.RESTART_CANCEL">
@@ -3975,12 +4002,6 @@
             The ID to use for Harmony patches.
             </summary>
         </member>
-        <member name="F:PeterHan.PLib.UI.TextMeshProPatcher.RECT_MASK_FIX">
-            <summary>
-            Only applies to older versions where TMP input fields have clipping bugs in scroll
-            rectangles.
-            </summary>
-        </member>
         <member name="F:PeterHan.PLib.UI.TextMeshProPatcher.patchChecked">
             <summary>
             Tracks whether the TMP patches have been checked.
@@ -4006,7 +4027,7 @@
         </member>
         <member name="M:PeterHan.PLib.UI.TextMeshProPatcher.InputFieldPatches(System.Type)">
             <summary>
-            Patches TMP_InputField, but only if necessary to fix bugs.
+            Patches TMP_InputField with fixes, but only if necessary.
             </summary>
             <param name="tmpType">The type of TMP_InputField.</param>
         </member>
@@ -4416,26 +4437,6 @@
             </summary>
             <param name="args">The arguments passed to the user light handler.</param>
         </member>
-        <member name="T:PeterHan.PLib.Lighting.IRayMode">
-            <summary>
-            Describes the ray mode used when drawing a light. Ray modes can use one of the vanilla
-            ray modes, or call methods provided by mods to display a custom texture.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.IRayMode.DrawCustomRay(Light2D,LightBuffer)">
-            <summary>
-            Draws a custom ray shape.
-            </summary>
-            <param name="light">The light that is being rendered.</param>
-            <param name="lightBuffer">The light buffer to use for rendering.</param>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.IRayMode.Prepare(LightBuffer)">
-            <summary>
-            Prepares for ray rendering by setting any necessary shader parameters. Called once
-            per light rendering pass no matter how many lights there are in the scene.
-            </summary>
-            <param name="lightBuffer">The light buffer to use for rendering.</param>
-        </member>
         <member name="T:PeterHan.PLib.Lighting.LightingArgs">
             <summary>
             Arguments which are passed to lighting callbacks to perform lighting calculations.
@@ -4564,21 +4565,6 @@
             The version of this component. Uses the running PLib version.
             </summary>
         </member>
-        <member name="F:PeterHan.PLib.Lighting.PLightManager.OPERATION_PREPARE">
-            <summary>
-            Processes all ray shapes at the start of a lighting pass.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PLightManager.OPERATION_RENDER">
-            <summary>
-            Processes light ray handling.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PLightManager.OPERATION_CLEANUP">
-            <summary>
-            Cleans up after light rays are drawn to avoid leaks.
-            </summary>
-        </member>
         <member name="P:PeterHan.PLib.Lighting.PLightManager.ForceSmoothLight">
             <summary>
             If true, enables the smooth light falloff mode even on vanilla lights.
@@ -4587,11 +4573,6 @@
         <member name="P:PeterHan.PLib.Lighting.PLightManager.Instance">
             <summary>
             The instantiated copy of this class.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.PLightManager.Cleanup">
-            <summary>
-            Cleans up references after rendering lights.
             </summary>
         </member>
         <member name="M:PeterHan.PLib.Lighting.PLightManager.GetDefaultFalloff(System.Single,System.Int32,System.Int32)">
@@ -4620,12 +4601,6 @@
             <param name="light">The light which is being drawn.</param>
             <returns>The shape to use for its rays.</returns>
         </member>
-        <member name="M:PeterHan.PLib.Lighting.PLightManager.InitRayShapes(LightBuffer)">
-            <summary>
-            Initializes user-provided ray shapes (which often need materials set up).
-            </summary>
-            <param name="instance">The current light buffer.</param>
-        </member>
         <member name="M:PeterHan.PLib.Lighting.PLightManager.LogLightingDebug(System.String)">
             <summary>
             Logs a message encountered by the PLib lighting system.
@@ -4647,16 +4622,6 @@
             <summary>
             The last object that requested a preview. Only one preview can be requested at a
             time, so no need for thread safety.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PLightManager.activeBuffer">
-            <summary>
-            The currently active light buffer.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PLightManager.rayRenderers">
-            <summary>
-            The lighting ray renderers registered by this mod.
             </summary>
         </member>
         <member name="F:PeterHan.PLib.Lighting.PLightManager.shapes">
@@ -4710,16 +4675,6 @@
             <param name="shape">The light shape.</param>
             <param name="lux">The base brightness in lux.</param>
             <returns>true if the lighting was handled, or false otherwise.</returns>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.PLightManager.RegisterRayMode(PeterHan.PLib.Lighting.IRayMode)">
-            <summary>
-            Registers a light ray rendering handler. Mods can either implement IRayMode for
-            full control over rendering, or instantiate and register a PRayMode object that
-            handles most common cases.
-            
-            Ray modes should usually be registered in OnLoad after the texture has been loaded.
-            </summary>
-            <param name="mode">The ray mode handler to register.</param>
         </member>
         <member name="M:PeterHan.PLib.Lighting.PLightManager.Register(System.String,PeterHan.PLib.Lighting.PLightManager.CastLightDelegate,LightShape)">
             <summary>
@@ -4783,54 +4738,6 @@
             <param name="cell">The origin cell.</param>
             <param name="range">The range to fill.</param>
             <param name="brightness">The location where lit points will be stored.</param>
-        </member>
-        <member name="T:PeterHan.PLib.Lighting.PRayMode">
-            <summary>
-            Implements the most common cases for light ray drawing.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PRayMode.filter">
-            <summary>
-            Filters by the light shape being used. If &lt; 0, the filter is disabled.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PRayMode.layer">
-            <summary>
-            The layer to use for rendering.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PRayMode.material">
-            <summary>
-            The material used to render the rays. It uses a vanilla shader with few parameters.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Lighting.PRayMode.texture">
-            <summary>
-            The texture backing the material.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.PRayMode.#ctor(UnityEngine.Texture2D,LightShape)">
-            <summary>
-            Creates a ray mode. Ray modes should be created and registered in OnLoad after the
-            relevant texture is loaded.
-            </summary>
-            <param name="texture">The texture to be used for drawing.</param>
-            <param name="filter">The light shape to filter drawing; to disable the filter, use
-            (LightShape)(-1). Complex filtering can be done by overriding FilterDrawing.</param>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.PRayMode.FilterDrawing(Light2D)">
-            <summary>
-            Filters whether this ray will be drawn.
-            </summary>
-            <param name="light">The light that will be drawn.</param>
-            <returns>true to continue drawing the rays, or false otherwise.</returns>
-        </member>
-        <member name="M:PeterHan.PLib.Lighting.PRayMode.GetTransformMatrix(UnityEngine.Matrix4x4@)">
-            <summary>
-            Calculate the desired transformation matrix for rendering rays.
-            </summary>
-            <param name="matrix">The default transform matrix, which should be updated
-            with the desired new matrix if changes must be made.</param>
         </member>
         <member name="T:PeterHan.PLib.Lighting.PRemoteLightWrapper">
             <summary>
@@ -5390,22 +5297,6 @@
             grouped types of other options.
             </summary>
         </member>
-        <member name="T:PeterHan.PLib.Options.IRequireFilter">
-            <summary>
-            An attribute placed on an option property for a class used as mod options in order to
-            show or hide it for particular criteria.
-            
-            This attribute can also be added to individual members of an Enum to filter the options
-            shown by SelectOneOptionsEntry.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Options.IRequireFilter.Filter">
-            <summary>
-            Filters the option by the specified criteria. If multiple attributes of this type
-            are present on one mod option, all must be satisfied to show it.
-            </summary>
-            <returns>true if the option should be shown, or false if it should be hidden.</returns>
-        </member>
         <member name="T:PeterHan.PLib.Options.LimitAttribute">
             <summary>
             An attribute placed on an option field for a property used as mod options to define
@@ -5420,12 +5311,6 @@
         <member name="P:PeterHan.PLib.Options.LimitAttribute.Minimum">
             <summary>
             The minimum value (inclusive).
-            </summary>
-        </member>
-        <member name="P:PeterHan.PLib.Options.LimitAttribute.Step">
-            <summary>
-            The increment used for sliders. Only some controls support this attribute.
-            For example, it makes no sense for a string length limit.
             </summary>
         </member>
         <member name="M:PeterHan.PLib.Options.LimitAttribute.ClampToRange(System.Single)">
@@ -5910,7 +5795,7 @@
             <param name="depth">The current depth of iteration to avoid infinite loops.</param>
             <returns>The OptionsEntry created, or null if none was.</returns>
         </member>
-        <member name="M:PeterHan.PLib.Options.OptionsEntry.TryCreateEntry(System.Object,System.Reflection.PropertyInfo,System.Int32,System.Boolean)">
+        <member name="M:PeterHan.PLib.Options.OptionsEntry.TryCreateEntry(System.Attribute,System.Reflection.PropertyInfo,System.Int32,System.Boolean)">
             <summary>
             Creates an options entry if an attribute is a valid IOptionSpec or
             DynamicOptionAttribute.
@@ -6193,9 +6078,6 @@
             An attribute placed on an option property for a class used as mod options in order to
             show or hide it for particular DLCs. If the option is hidden, the value currently
             in the options file is preserved unchanged when reading or writing.
-            
-            This attribute can also be added to individual members of an Enum to filter the options
-            shown by SelectOneOptionsEntry.
             </summary>
         </member>
         <member name="P:PeterHan.PLib.Options.RequireDLCAttribute.DlcID">
@@ -6215,8 +6097,7 @@
             must also be present to be displayed at all.
             </summary>
             <param name="dlcID">The DLC ID to require. Must be one of:
-            DlcManager.EXPANSION1_ID, DlcManager.DLC2_ID, DlcManager.DLC3_ID,
-            DlcMaanger.DLC4_ID, DlcManager.VANILLA_ID</param>
+            DlcManager.EXPANSION1_ID, DlcManager.VANILLA_ID</param>
         </member>
         <member name="M:PeterHan.PLib.Options.RequireDLCAttribute.#ctor(System.String,System.Boolean)">
             <summary>
@@ -6224,97 +6105,8 @@
             [Option] attribute must also be present to be displayed at all.
             </summary>
             <param name="dlcID">The DLC ID to require or forbid. Must be one of:
-            DlcManager.EXPANSION1_ID, DlcManager.DLC2_ID, DlcManager.DLC3_ID,
-            DlcMaanger.DLC4_ID, DlcManager.VANILLA_ID</param>
+            DlcManager.EXPANSION1_ID, DlcManager.VANILLA_ID</param>
             <param name="required">true to require the DLC, or false to forbid it.</param>
-        </member>
-        <member name="T:PeterHan.PLib.Options.RequireModAttribute">
-            <summary>
-            An attribute placed on an option property for a class used as mod options in order to
-            show or hide it for particular active mods. If the option is hidden, the value
-            currently in the options file is preserved unchanged when reading or writing.
-            
-            This attribute can also be added to individual members of an Enum to filter the options
-            shown by SelectOneOptionsEntry.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.Options.RequireModAttribute.ACTIVE_MODS">
-            <summary>
-            Caches the list of active mods. Technically created once for each mod using
-            RequireModAttribute, but trying to share the list through a forwarded component
-            creates another API surface that might break.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Options.RequireModAttribute.IsModActive(System.String)">
-            <summary>
-            Checks to see if a mod is active.
-            </summary>
-            <param name="staticID">The mod static ID to query.</param>
-            <returns>true if the mod is installed and active, or false otherwise.</returns>
-        </member>
-        <member name="P:PeterHan.PLib.Options.RequireModAttribute.StaticID">
-            <summary>
-            The mod static ID to check.
-            </summary>
-        </member>
-        <member name="P:PeterHan.PLib.Options.RequireModAttribute.Required">
-            <summary>
-            If true, the mod is required, and the option is hidden if the mod is inactive.
-            If false, the mod is forbidden, and the option is hidden if the mod is active.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Options.RequireModAttribute.#ctor(System.String)">
-            <summary>
-            Annotates an option field as requiring the specified mod to be active and
-            installed. The [Option] attribute must also be present to be displayed at all.
-            </summary>
-            <param name="staticID">The mod ID to require.</param>
-        </member>
-        <member name="M:PeterHan.PLib.Options.RequireModAttribute.#ctor(System.String,System.Boolean)">
-            <summary>
-            Annotates an option field as requiring or forbidding the specified mod to be active
-            and installed. The [Option] attribute must also be present to be displayed at all.
-            </summary>
-            <param name="staticID">The mod ID to require or forbid.</param>
-            <param name="required">true to require the mod, or false to forbid it.</param>
-        </member>
-        <member name="T:PeterHan.PLib.Options.RequireVersionAttribute">
-            <summary>
-            An attribute placed on an option property for a class used as mod options in order to
-            show or hide it for particular game versions. If the option is hidden, the value
-            currently in the options file is preserved unchanged when reading or writing.
-            
-            This attribute can also be added to individual members of an Enum to filter the options
-            shown by SelectOneOptionsEntry.
-            </summary>
-        </member>
-        <member name="P:PeterHan.PLib.Options.RequireVersionAttribute.Version">
-            <summary>
-            The game version number (KleiVersion.ChangeList) to check.
-            </summary>
-        </member>
-        <member name="P:PeterHan.PLib.Options.RequireVersionAttribute.Minimum">
-            <summary>
-            If true, the option is shown for game versions greater than or equal to the
-            required version. If false, the option is shown for game versions less than the
-            required version.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Options.RequireVersionAttribute.#ctor(System.UInt32)">
-            <summary>
-            Annotates an option field as requiring at least the specified game version.
-            The [Option] attribute must also be present to be displayed at all.
-            </summary>
-            <param name="version">The minimum game version to require.</param>
-        </member>
-        <member name="M:PeterHan.PLib.Options.RequireVersionAttribute.#ctor(System.UInt32,System.Boolean)">
-            <summary>
-            Annotates an option field as requiring the specified game version.
-            The [Option] attribute must also be present to be displayed at all.
-            </summary>
-            <param name="version">The minimum or maximum game version to require.</param>
-            <param name="minimum">true if the version is the minimum game version, or false if
-            the version is the maximum game version (exclusive).</param>
         </member>
         <member name="T:PeterHan.PLib.Options.RestartRequiredAttribute">
             <summary>
@@ -6342,16 +6134,6 @@
             <param name="enumValue">The value in the enumeration.</param>
             <param name="fieldType">The type of the Enum field.</param>
             <returns>The matching Option</returns>
-        </member>
-        <member name="M:PeterHan.PLib.Options.SelectOneOptionsEntry.CreateOption(System.Object,System.Reflection.MemberInfo,System.String)">
-            <summary>
-            Creates an option entry by parsing the custom attributes of the enum member.
-            </summary>
-            <param name="enumValue">The value to report from the enum.</param>
-            <param name="enumField">The field to search for attributes.</param>
-            <param name="valueName">The enumeration value name declared in code.</param>
-            <returns>The option entry to create for this member, or null if the member is
-            filtered out.</returns>
         </member>
         <member name="F:PeterHan.PLib.Options.SelectOneOptionsEntry.chosen">
             <summary>
@@ -6469,16 +6251,6 @@
             An options entry which represents a string and displays a text field.
             </summary>
         </member>
-        <member name="F:PeterHan.PLib.Options.StringOptionsEntry.DEFAULT_WIDTH">
-            <summary>
-            The default width in units for text fields.
-            </summary>
-        </member>
-        <member name="P:PeterHan.PLib.Options.StringOptionsEntry.DisplayWidth">
-            <summary>
-            The width (in units, not characters!) used for display.
-            </summary>
-        </member>
         <member name="F:PeterHan.PLib.Options.StringOptionsEntry.maxLength">
             <summary>
             The maximum entry length.
@@ -6551,55 +6323,6 @@
             </summary>
             <param name="type">The type that will handle this dynamic option.</param>
             <param name="category">The category to use, or null for the default category.</param>
-        </member>
-        <member name="T:PeterHan.PLib.UI.FontSizeCalculator">
-            <summary>
-            Calculates and caches metrics about TextMeshPro fonts.
-            </summary>
-        </member>
-        <member name="F:PeterHan.PLib.UI.FontSizeCalculator.Instance">
-            <summary>
-            The singleton instance of this class.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.UI.FontSizeCalculator.GetCharWidth(System.Char,TMPro.TMP_FontAsset)">
-            <summary>
-            Gets the unscaled width of the character in the specified font.
-            </summary>
-            <param name="ch">The character to calculate.</param>
-            <param name="font">The font to use for calculation.</param>
-            <returns>The unscaled width of the specified character, or 0.0f if the character
-            metrics are not available.</returns>
-        </member>
-        <member name="F:PeterHan.PLib.UI.FontSizeCalculator.fontMetrics">
-            <summary>
-            Stores calculated metrics about fonts. Although this could theoretically leak font
-            assets, font assets should not be created and destroyed at runtime anyways.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.UI.FontSizeCalculator.CalculateMetrics(TMPro.TMP_FontAsset)">
-            <summary>
-            Calculates the font metrics for a given font.
-            </summary>
-            <param name="font">The font to calculate.</param>
-            <returns>The calculated metrics.</returns>
-        </member>
-        <member name="M:PeterHan.PLib.UI.FontSizeCalculator.Cleanup">
-            <summary>
-            Clears all cached fonts.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.UI.FontSizeCalculator.Get(TMPro.TMP_FontAsset)">
-            <summary>
-            Gets the cached font metrics for a specified font.
-            </summary>
-            <param name="font">The font to look up.</param>
-            <returns>The font's metrics.</returns>
-        </member>
-        <member name="T:PeterHan.PLib.UI.FontSizeCalculator.Metrics">
-            <summary>
-            Stores cached metrics of a font.
-            </summary>
         </member>
         <member name="T:PeterHan.PLib.UI.IDynamicSizable">
             <summary>
@@ -8896,12 +8619,6 @@
             The size of the slider handle.
             </summary>
         </member>
-        <member name="P:PeterHan.PLib.UI.PSliderSingle.Increment">
-            <summary>
-            The increment to be used for the slider for steps. If 0, any value in range can
-            be used.
-            </summary>
-        </member>
         <member name="P:PeterHan.PLib.UI.PSliderSingle.InitialValue">
             <summary>
             The initial slider value.
@@ -9628,16 +9345,6 @@
             <param name="modeVert">The sizing mode to use in the vertical direction.</param>
             <returns>The UI element, for call chaining.</returns>
         </member>
-        <member name="M:PeterHan.PLib.UI.PUIElements.SetAnchors(UnityEngine.RectTransform,PeterHan.PLib.UI.PUIAnchoring,PeterHan.PLib.UI.PUIAnchoring)">
-            <summary>
-            Sets the anchor location of a UI element. The offsets will be reset, use
-            SetAnchorOffsets to adjust the offset from the new anchor locations.
-            </summary>
-            <param name="transform">The RectTransform of the UI element to modify.</param>
-            <param name="horizAnchor">The horizontal anchor mode.</param>
-            <param name="vertAnchor">The vertical anchor mode.</param>
-            <returns>The UI element, for call chaining.</returns>
-        </member>
         <member name="M:PeterHan.PLib.UI.PUIElements.SetAnchors(UnityEngine.GameObject,PeterHan.PLib.UI.PUIAnchoring,PeterHan.PLib.UI.PUIAnchoring)">
             <summary>
             Sets the anchor location of a UI element. The offsets will be reset, use
@@ -9977,21 +9684,6 @@
             <param name="result">The location to append the text.</param>
             <param name="component">The component to describe.</param>
         </member>
-        <member name="M:PeterHan.PLib.UI.PUIUtils.AddReferenceText(System.Text.StringBuilder,HierarchyReferences)">
-            <summary>
-            Adds text describing hierarchy references, which are a bit dubious in the first
-            place...
-            </summary>
-            <param name="result">The location to append the text.</param>
-            <param name="hr">The references to describe.</param>
-        </member>
-        <member name="M:PeterHan.PLib.UI.PUIUtils.AddTransformText(System.Text.StringBuilder,UnityEngine.RectTransform)">
-            <summary>
-            Adds text describing a particular RectTransform instance.
-            </summary>
-            <param name="result">The location to append the text.</param>
-            <param name="rt">The transform to describe.</param>
-        </member>
         <member name="M:PeterHan.PLib.UI.PUIUtils.AddPinkOverlay(UnityEngine.GameObject)">
             <summary>
             Adds a hot pink rectangle over the target matching its size, to help identify it
@@ -10156,7 +9848,7 @@
             <param name="child">The child to inset.</param>
             <param name="insets">The insets on each side.</param>
             <param name="prefSize">The minimum component size.</param>
-            <returns>The layout element that was added.</returns>
+            <returns>The parent component.</returns>
         </member>
         <member name="M:PeterHan.PLib.UI.PUIUtils.InsertSideScreenContent(System.Collections.Generic.IList{DetailsScreen.SideScreenRef},DetailsScreen.SideScreenRef,System.String,System.Boolean)">
             <summary>
