@@ -64,7 +64,7 @@
     <PropertyGroup>
         <Product>SonJeremy Oxygen Not Included Mod</Product>
         <Authors>Son Jeremy</Authors>
-        <Copyright>Copyright © Son Jeremy 2024</Copyright>
+        <Copyright>Copyright © Son Jeremy 2026</Copyright>
         <TargetFramework>netstandard2.1</TargetFramework>
         <RequiredDLCs></RequiredDLCs>
         <ForbiddenDLCs></ForbiddenDLCs>
@@ -72,7 +72,7 @@
         <LastWorkingBuild>0</LastWorkingBuild>
         <DistributeMod>true</DistributeMod>
         <UsePublicized>false</UsePublicized>
-        <PLibVersion>4.24.0.0</PLibVersion>
+        <PLibVersion>4.25.0.0</PLibVersion>
         <DefineConstants>MERGEDOWN</DefineConstants>
         <APIVersion>2</APIVersion>
         <ModInfoFile>$(IntermediateOutputPath)\mod_info.yaml</ModInfoFile>
