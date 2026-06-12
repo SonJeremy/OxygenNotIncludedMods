@@ -195,10 +195,79 @@
             The modifier code.
             </summary>
         </member>
+        <member name="T:PeterHan.PLib.Actions.PToggleData">
+            <summary>
+            Stores the same data as Klei's ToolParameterMenu.ToggleData class, but wraps it in
+            a safer class that handles multiple game versions.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.PToggleData.Name">
+            <summary>
+            The tool name.
+            </summary>
+        </member>
+        <member name="P:PeterHan.PLib.Actions.PToggleData.State">
+            <summary>
+            The current state.
+            </summary>
+        </member>
+        <member name="T:PeterHan.PLib.Actions.PToggleDataCollection">
+            <summary>
+            Stores the toggle state of all tools in a tool menu.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.PToggleDataCollection.toggles">
+            <summary>
+            Stores the state of each tool. Passed to Klei methods when using the new
+            compatibility mode.
+            </summary>
+        </member>
+        <member name="P:PeterHan.PLib.Actions.PToggleDataCollection.ToolCount">
+            <summary>
+            Reports the number of tool modes in this collection.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.PToggleDataCollection.initialStates">
+            <summary>
+            The initial states, which in previous game versions will be automatically updated
+            when states change.
+            </summary>
+        </member>
+        <member name="P:PeterHan.PLib.Actions.PToggleDataCollection.Item(System.Int32)">
+            <summary>
+            Indexes the 
+            </summary>
+            <param name="index" />
+            <returns />
+            <exception cref="T:System.ArgumentOutOfRangeException" />
+        </member>
+        <member name="M:PeterHan.PLib.Actions.PToggleDataCollection.GetToggleDataArray">
+            <summary>
+            Creates an array of native Klei ToggleData objects to pass to the tool menu
+            initialization methods.
+            </summary>
+            <returns>An array of Klei ToggleData objects matching the toggle states of this collection.</returns>
+        </member>
+        <member name="M:PeterHan.PLib.Actions.PToggleDataCollection.GetToggleDataDictionary">
+            <summary>
+            Creates a dictionary of raw initial toggle states to pass to legacy tool menu
+            initialization methods.
+            
+            TODO Remove when versions before U58-719533 no longer need to be supported
+            </summary>
+        </member>
         <member name="T:PeterHan.PLib.Actions.PToolMode">
             <summary>
             A tool mode used in custom tool menus. Shown in the options in the bottom right.
             </summary>
+        </member>
+        <member name="M:PeterHan.PLib.Actions.PToolMode.CreateMenu(ToolParameterMenu,System.Collections.Generic.ICollection{PeterHan.PLib.Actions.PToolMode})">
+            <summary>
+            Sets up tool options in the tool parameter menu.
+            </summary>
+            <param name="menu">The menu to configure.</param>
+            <param name="options">The available modes.</param>
+            <returns>A list of tool options that store the real time state of each mode.</returns>
         </member>
         <member name="M:PeterHan.PLib.Actions.PToolMode.PopulateMenu(ToolParameterMenu,System.Collections.Generic.ICollection{PeterHan.PLib.Actions.PToolMode})">
             <summary>
@@ -240,6 +309,65 @@
             <param name="title">The title to be displayed. If null, the title will be taken
             from the default location in STRINGS.UI.TOOLS.FILTERLAYERS.</param>
             <param name="state">The initial state, default Off.</param>
+        </member>
+        <member name="T:PeterHan.PLib.Actions.PToolModeCompatibility">
+            <summary>
+            Checks which game version is being used and handles compatibility with the wrapper for
+            previous versions of PLib.
+            </summary>
+        </member>
+        <member name="P:PeterHan.PLib.Actions.PToolModeCompatibility.Instance">
+            <summary>
+            The singleton instance of this class.
+            </summary>
+        </member>
+        <member name="M:PeterHan.PLib.Actions.PToolModeCompatibility.LazyInitializeCompatibility">
+            <summary>
+            When first used, probes for the compatibility mode to use on ToolParameterMenu and
+            sets the correct 
+            </summary>
+        </member>
+        <member name="T:PeterHan.PLib.Actions.ToolMenuDictionary">
+            <summary>
+            Wraps the new Klei ToggleData[] class in a dictionary-like wrapper for
+            compatibility.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.ToolMenuDictionary.backing">
+            <summary>
+            Stores the tool toggle data by name.
+            </summary>
+        </member>
+        <member name="T:PeterHan.PLib.Actions.ToolMenuDictionary.ValueCollection">
+            <summary>
+            Wraps the values in a read-only value collection.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.ToolMenuDictionary.ValueCollection.backing">
+            <summary>
+            Stores the tool toggle data by name.
+            </summary>
+        </member>
+        <member name="T:PeterHan.PLib.Actions.ToolMenuDictionary.ToolEnumerator">
+            <summary>
+            Enumerates the collection by tool name.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.ToolMenuDictionary.ToolEnumerator.backing">
+            <summary>
+            Stores the tool toggle data by name.
+            </summary>
+        </member>
+        <member name="T:PeterHan.PLib.Actions.ToolMenuDictionary.ToolStateEnumerator">
+            <summary>
+            Enumerates the collection by tool value. Not really useful but satisfies the
+            contract.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.Actions.ToolMenuDictionary.ToolStateEnumerator.backing">
+            <summary>
+            Stores the tool toggle data by name.
+            </summary>
         </member>
         <member name="T:PeterHan.PLib.AVC.IModVersionChecker">
             <summary>
@@ -4387,8 +4515,18 @@
             <summary>
             Registers the specified assembly for automatic PLib localization. If the argument
             is omitted, the calling assembly is registered.
+            
+            This method uses the first type listed in the assembly (often ordered
+            alphabetically), which usually works and is fast to determine, but might choose the
+            wrong type for some ILRepack/ILMerge configurations. Consider
+            RegisterFromCallingClass instead.
             </summary>
             <param name="assembly">The assembly to register for PLib localization.</param>
+        </member>
+        <member name="M:PeterHan.PLib.Database.PLocalization.RegisterFromCallingClass">
+            <summary>
+            Registers the assembly of the calling class for automatic PLib localization.
+            </summary>
         </member>
         <member name="T:PeterHan.PLib.Lighting.ILightShape">
             <summary>
