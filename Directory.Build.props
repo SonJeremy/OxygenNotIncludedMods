@@ -72,9 +72,15 @@
         <LastWorkingBuild>0</LastWorkingBuild>
         <DistributeMod>true</DistributeMod>
         <UsePublicized>false</UsePublicized>
-        <PLibVersion>4.25.0.0</PLibVersion>
+        <PLibVersion>4.26.0.0</PLibVersion>
         <DefineConstants>MERGEDOWN</DefineConstants>
         <APIVersion>2</APIVersion>
         <ModInfoFile>$(IntermediateOutputPath)\mod_info.yaml</ModInfoFile>
     </PropertyGroup>
+    <ItemGroup Condition="'$(TargetFrameworks.Contains(netstandard2.1))' == 'true'">
+        <!-- Choose the correct version to reduce log spam w.r.t. mismatched assembly versions -->
+        <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <SpecificVersion>True</SpecificVersion>
+        </Reference>
+    </ItemGroup>
 </Project>
