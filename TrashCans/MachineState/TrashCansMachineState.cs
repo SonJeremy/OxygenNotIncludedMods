@@ -14,13 +14,11 @@ namespace SonJeremy.TrashCans.MachineState
     [SerializationConfig(MemberSerialization.OptIn)]
     public class TrashCansMachineState : StateMachineComponent<TrashCansMachineState.SMInstance>
     {
-        private static readonly EventSystem.IntraObjectHandler<TrashCansMachineState>
-            OnStorageChange = new EventSystem.IntraObjectHandler<TrashCansMachineState>
-            ((GameComponent, GameObject) => GameComponent.OnStorageChanged());
+        private static readonly System.Action<object, object> OnStorageChange =
+            (GameComponent, GameObject) => ((TrashCansMachineState) GameComponent).UpdateMeter();
 
-        private static readonly EventSystem.IntraObjectHandler<TrashCansMachineState>
-            OnStartWorkable = new EventSystem.IntraObjectHandler<TrashCansMachineState>
-            ((GameComponent, GameObject) => GameComponent.PlayWorkable());
+        private static readonly System.Action<object, object> OnStartWorkable =
+            (GameComponent, GameObject) => ((TrashCansMachineState) GameComponent).PlayWorkable();
 
         private MeterController StorageMeter;
         
@@ -40,17 +38,15 @@ namespace SonJeremy.TrashCans.MachineState
             base.OnSpawn();
 
             StorageMeter = new MeterController(this, Meter.Offset.Infront, Grid.SceneLayer.NoLayer);
-
-            Subscribe((int)GameHashes.OnStorageChange, OnStorageChange);
-            Subscribe((int)GameHashes.WorkableStartWork, OnStartWorkable);
-
+            
+            Subscribe((int)GameHashes.OnStorageChange, OnStorageChange, this);
+            Subscribe((int)GameHashes.WorkableStartWork, OnStartWorkable, this);
+            
             UpdateMeter();
             smi.StartSM();
         }
 
         private void UpdateMeter() => StorageMeter.SetPositionPercent(Mathf.Clamp01(TrashCansStorage.MassStored() / TrashCansStorage.capacityKg));
-
-        private void OnStorageChanged() => UpdateMeter();
 
         public class SMInstance : GameStateMachine<States, SMInstance, TrashCansMachineState, object>.GameInstance
         {
