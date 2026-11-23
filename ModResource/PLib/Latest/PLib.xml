@@ -248,14 +248,6 @@
             </summary>
             <returns>An array of Klei ToggleData objects matching the toggle states of this collection.</returns>
         </member>
-        <member name="M:PeterHan.PLib.Actions.PToggleDataCollection.GetToggleDataDictionary">
-            <summary>
-            Creates a dictionary of raw initial toggle states to pass to legacy tool menu
-            initialization methods.
-            
-            TODO Remove when versions before U58-719533 no longer need to be supported
-            </summary>
-        </member>
         <member name="T:PeterHan.PLib.Actions.PToolMode">
             <summary>
             A tool mode used in custom tool menus. Shown in the options in the bottom right.
@@ -309,23 +301,6 @@
             <param name="title">The title to be displayed. If null, the title will be taken
             from the default location in STRINGS.UI.TOOLS.FILTERLAYERS.</param>
             <param name="state">The initial state, default Off.</param>
-        </member>
-        <member name="T:PeterHan.PLib.Actions.PToolModeCompatibility">
-            <summary>
-            Checks which game version is being used and handles compatibility with the wrapper for
-            previous versions of PLib.
-            </summary>
-        </member>
-        <member name="P:PeterHan.PLib.Actions.PToolModeCompatibility.Instance">
-            <summary>
-            The singleton instance of this class.
-            </summary>
-        </member>
-        <member name="M:PeterHan.PLib.Actions.PToolModeCompatibility.LazyInitializeCompatibility">
-            <summary>
-            When first used, probes for the compatibility mode to use on ToolParameterMenu and
-            sets the correct 
-            </summary>
         </member>
         <member name="T:PeterHan.PLib.Actions.ToolMenuDictionary">
             <summary>
@@ -8349,6 +8324,12 @@
             The background color of the dialog itself (including button panel).
             </summary>
         </member>
+        <member name="P:PeterHan.PLib.UI.PDialog.Draggable">
+            <summary>
+            If true, the dialog can be moved by dragging its title bar. It cannot be moved
+            outside of its parent.
+            </summary>
+        </member>
         <member name="P:PeterHan.PLib.UI.PDialog.MaxSize">
             <summary>
             The dialog's maximum size. If the dialog preferred size is bigger than this size,
@@ -8510,6 +8491,43 @@
             A delegate which closes the dialog on prompt.
             </summary>
             <param name="source">The button source.</param>
+        </member>
+        <member name="T:PeterHan.PLib.UI.PDialogDragHandle">
+            <summary>
+            Allows a dialog to be moved by dragging its title bar with the left mouse button. The
+            dialog cannot be dragged outside of its parent.
+            </summary>
+        </member>
+        <member name="P:PeterHan.PLib.UI.PDialogDragHandle.Target">
+            <summary>
+            The dialog to move.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.UI.PDialogDragHandle.dragging">
+            <summary>
+            Whether a drag with the left mouse button is in progress.
+            </summary>
+        </member>
+        <member name="F:PeterHan.PLib.UI.PDialogDragHandle.offset">
+            <summary>
+            The offset from the pointer to the dialog position when the drag started.
+            </summary>
+        </member>
+        <member name="M:PeterHan.PLib.UI.PDialogDragHandle.ClampDelta(UnityEngine.Vector2)">
+            <summary>
+            Limits the dialog movement so that it stays inside its parent. If the dialog is
+            larger than its parent on an axis, movement on that axis is not limited.
+            </summary>
+            <param name="delta">The requested movement in the parent's coordinates.</param>
+            <returns>The movement, adjusted to keep the dialog inside its parent.</returns>
+        </member>
+        <member name="M:PeterHan.PLib.UI.PDialogDragHandle.ToParentPoint(UnityEngine.EventSystems.PointerEventData,UnityEngine.Vector2@)">
+            <summary>
+            Converts a pointer position to the coordinates of the dialog's parent.
+            </summary>
+            <param name="data">The pointer event.</param>
+            <param name="point">The location in the parent's coordinates.</param>
+            <returns>true if the position could be converted, or false otherwise.</returns>
         </member>
         <member name="T:PeterHan.PLib.UI.PGridPanel">
             <summary>
